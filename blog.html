@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eiva — Hlavou v oblacích, nohama na zemi</title>
-    <meta name="description" content="Boříme bariéry v pohybu. Využíváme FPV technologie a virtuální realitu, aby létání a závodění bylo dostupné i lidem s omezenou pohyblivostí.">
+    <title>Blog — Eiva</title>
+    <meta name="description" content="Příběhy, tech novinky a akce z projektu Eiva. Přečtěte si, co je u nás nového.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://eiva.cz/">
+    <link rel="canonical" href="https://eiva.cz/blog/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Eiva — Hlavou v oblacích, nohama na zemi">
-    <meta property="og:description" content="FPV technologie a VR pro lidi s tělesným postižením. Létání bez hranic.">
+    <meta property="og:title" content="Blog — Eiva">
+    <meta property="og:description" content="Novinky, technologický pokrok a příběhy z projektu Eiva.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://eiva.cz/">
+    <meta property="og:url" content="https://eiva.cz/blog/">
 
     <!-- Fonts: DM Sans (Minimax primary) + Inter (body fallback) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,30 +72,15 @@
     <style>
         /* === MINIMAX-ADAPTED DESIGN TOKENS FOR EIVA === */
 
-        /* Selection */
         ::selection {
             background: #0a0a0a;
             color: #ffffff;
         }
 
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Reading typography optimization */
-        .prose-reading {
-            font-family: 'Inter', 'DM Sans', sans-serif;
-            font-size: clamp(1rem, 1.5vw, 1.125rem);
-            line-height: 1.8;
-            color: #222222;
-            letter-spacing: 0.005em;
-        }
-
-        .prose-reading p {
-            margin-bottom: 1.5em;
         }
 
         /* Category pill hover */
@@ -125,12 +110,6 @@
             background: linear-gradient(135deg, #f7f8fa 0%, #e5e7eb 100%);
         }
 
-        /* Newsletter input focus */
-        .newsletter-input:focus {
-            outline: none;
-            border-color: #0a0a0a;
-        }
-
         /* Mobile menu */
         .mobile-nav {
             transform: translateY(-100%);
@@ -138,6 +117,21 @@
         }
         .mobile-nav.active {
             transform: translateY(0);
+        }
+
+        /* Sticky header background */
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Article thumbnail placeholder pattern */
+        .thumb-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0,0,0,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0,0,0,0.02) 0%, transparent 50%);
         }
 
         /* Fade in animation */
@@ -159,53 +153,6 @@
         .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
         .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
         .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
-        .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
-
-        /* Gear grid subtle line */
-        .gear-card {
-            position: relative;
-        }
-        .gear-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 1px;
-            height: 100%;
-            background: #e5e7eb;
-        }
-        .gear-card:last-child::after {
-            display: none;
-        }
-
-        /* Sticky header background */
-        .header-scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        /* Header dark mode (when transparent over dark hero video) */
-        #site-header.header-dark #site-logo img {
-            filter: invert(1) hue-rotate(180deg);
-        }
-        #site-header.header-dark #desktop-nav a {
-            color: rgba(255, 255, 255, 0.85);
-        }
-        #site-header.header-dark #desktop-nav a:hover {
-            color: #ffffff;
-        }
-        #site-header.header-dark #mobile-toggle {
-            color: #ffffff;
-        }
-
-        /* Article thumbnail placeholder pattern */
-        .thumb-pattern {
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(0,0,0,0.02) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(0,0,0,0.02) 0%, transparent 50%);
-        }
     </style>
 </head>
 
@@ -277,43 +224,37 @@
     <main id="content" role="main">
 
         <!-- ============================================= -->
-        <!-- 2. HERO — Massive Typography-Led Introduction -->
+        <!-- 2. HERO — Stark Typography Header -->
         <!-- ============================================= -->
-        <section id="hero" class="relative min-h-[85vh] md:min-h-[90vh] flex items-end pb-16 md:pb-24 pt-32 md:pt-40 overflow-hidden" aria-label="Úvod">
-            <!-- Background Video -->
-            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-                <source src="http://eiva.cz/wp-content/uploads/2026/02/JaExpoEiva-Trim-1.mp4" type="video/mp4">
-                Váš prohlížeč nepodporuje přehrávání videa.
-            </video>
-            
-            <!-- Dark Overlay -->
-            <div class="absolute inset-0 bg-ink/60 z-10"></div>
-
-            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12 w-full relative z-20">
+        <section id="hero" class="relative pt-32 md:pt-44 pb-12 md:pb-16 bg-canvas" aria-label="Blog">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12 w-full">
                 <!-- Overline -->
-                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-6 md:mb-8 animate-fade-in animate-delay-1">
-                    FPV &middot; Virtuální realita &middot; Přístupnost
+                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-4 animate-fade-in animate-delay-1">
+                    Naše novinky
                 </p>
 
-                <!-- Hero Headline -->
-                <h1 class="text-hero font-semibold text-canvas max-w-4xl mb-8 md:mb-10 animate-fade-in animate-delay-2">
-                    Hlavou v&nbsp;oblacích,<br>
-                    nohama na&nbsp;zemi
+                <!-- Headline -->
+                <h1 class="text-hero font-semibold text-ink-strong max-w-4xl animate-fade-in animate-delay-2 mb-10">
+                    Blog
                 </h1>
 
-                <!-- Subtitle -->
-                <p class="text-subtitle md:text-body-lg text-muted max-w-2xl mb-10 md:mb-14 animate-fade-in animate-delay-3 font-body">
-                    Boříme bariéry v&nbsp;pohybu. Využíváme FPV systémy pro letadla i&nbsp;auta, které zprostředkují autentický zážitek z&nbsp;řízení. Naši techniku nasazujeme tam, kde pomáhá nejvíc&nbsp;— dáváme možnost závodit a&nbsp;létat těm, kteří jsou v&nbsp;reálném světě omezeni pohybem.
-                </p>
-
-                <!-- CTA Pair -->
-                <div class="flex flex-wrap gap-4 animate-fade-in animate-delay-4">
-                    <a href="o-nas.html" id="hero-cta-primary" class="inline-flex items-center px-7 py-3 bg-canvas text-ink text-body-sm font-semibold rounded-pill hover:bg-surface transition-colors">
-                        Zjistit více
-                    </a>
-                    <a href="blog.html" id="hero-cta-secondary" class="inline-flex items-center px-7 py-3 border border-canvas text-canvas text-body-sm font-semibold rounded-pill hover:bg-canvas hover:text-ink transition-colors">
-                        Číst blog
-                    </a>
+                <!-- Category Filters Row -->
+                <div class="flex flex-wrap gap-2 animate-fade-in animate-delay-3" id="category-filters" role="tablist">
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill bg-ink text-canvas" role="tab" aria-selected="true">
+                        Vše
+                    </button>
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                        Tech
+                    </button>
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                        Příběhy
+                    </button>
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                        Akce
+                    </button>
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                        Partneři
+                    </button>
                 </div>
             </div>
         </section>
@@ -325,21 +266,15 @@
 
 
         <!-- ============================================= -->
-        <!-- 3. FEATURED BLOG POST — Full-Width Highlight -->
+        <!-- 3. FEATURED POST — Spanning Full Width -->
         <!-- ============================================= -->
-        <section id="featured-post" class="py-16 md:py-24 lg:py-32" aria-label="Hlavní článek">
+        <section id="featured-post" class="py-16 md:py-24" aria-label="Hlavní článek">
             <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
                 
-                <!-- Section Label -->
-                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-10 md:mb-14">
-                    Hlavní článek
-                </p>
-
-                <article class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                     
-                    <!-- Featured Image -->
-                    <a href="post.html" id="featured-thumb" class="block aspect-[4/3] lg:aspect-[3/2] bg-surface-soft rounded-2xl overflow-hidden featured-img-placeholder">
-                        <!-- <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover']); ?> -->
+                    <!-- Featured Image (Spans 7 Cols) -->
+                    <a href="post.html" id="featured-thumb" class="block lg:col-span-7 aspect-[16/10] bg-surface-soft rounded-2xl overflow-hidden featured-img-placeholder">
                         <div class="w-full h-full flex items-center justify-center text-muted">
                             <svg class="w-16 h-16 opacity-30" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
                                 <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -349,35 +284,31 @@
                         </div>
                     </a>
 
-                    <!-- Featured Content -->
-                    <div class="flex flex-col justify-center">
+                    <!-- Featured Content (Spans 5 Cols) -->
+                    <div class="lg:col-span-5 flex flex-col justify-center">
                         <!-- Category + Date -->
-                        <div class="flex items-center gap-3 mb-5">
+                        <div class="flex items-center gap-3 mb-5 font-body">
                             <span class="text-micro font-semibold uppercase tracking-[0.15em] text-ink bg-surface px-3 py-1 rounded-pill">
-                                <!-- <?php the_category(); ?> -->
                                 Akce
                             </span>
                             <time class="text-caption text-stone-custom" datetime="2025-06-15">
-                                <!-- <?php echo get_the_date(); ?> -->
                                 15. června 2025
                             </time>
                         </div>
 
                         <!-- Headline -->
-                        <h2 class="text-heading-lg font-semibold text-ink-strong mb-5 leading-tight">
+                        <h2 class="text-display font-semibold text-ink-strong mb-5 leading-tight tracking-tight">
                             <a href="post.html" class="hover:underline underline-offset-4 decoration-1" id="featured-title">
-                                <!-- <?php the_title(); ?> -->
                                 Eiva na Expo 2025 — Virtuální létání bez hranic
                             </a>
                         </h2>
 
                         <!-- Excerpt -->
                         <p class="text-body text-steel mb-8 font-body leading-relaxed max-w-lg">
-                            <!-- <?php the_excerpt(); ?> -->
                             Představili jsme naši technologii na mezinárodní výstavě. Návštěvníci si mohli vyzkoušet FPV létání přímo z&nbsp;invalidního vozíku. Reakce byly neuvěřitelné.
                         </p>
 
-                        <!-- Read More -->
+                        <!-- Read More Link -->
                         <a href="post.html" id="featured-read-more" class="inline-flex items-center gap-2 text-body-sm font-semibold text-ink hover:gap-3 transition-all group">
                             Číst celý článek
                             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -386,9 +317,9 @@
                         </a>
                     </div>
                 </article>
+
             </div>
         </section>
-
 
         <!-- Divider -->
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
@@ -397,55 +328,27 @@
 
 
         <!-- ============================================= -->
-        <!-- 4. BLOG FEED — Dynamic Content Loop -->
+        <!-- 4. MAIN POST GRID — Stark 3-Column Layout -->
         <!-- ============================================= -->
-        <section id="blog-feed" class="py-16 md:py-24 lg:py-32" aria-label="Blog">
+        <section id="blog-grid" class="py-16 md:py-24" aria-label="Ostatní články">
             <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
                 
-                <!-- Section Header -->
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-14 gap-6">
-                    <div>
-                        <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-3">Blog</p>
-                        <h2 class="text-heading-md font-semibold text-ink-strong">Příběhy, tech a akce</h2>
-                    </div>
-
-                    <!-- Category Filters -->
-                    <div class="flex flex-wrap gap-2" id="category-filters" role="tablist">
-                        <!-- <?php wp_list_categories(); ?> -->
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill bg-ink text-canvas" role="tab" aria-selected="true">
-                            Vše
-                        </button>
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
-                            Tech
-                        </button>
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
-                            Příběhy
-                        </button>
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
-                            Akce
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Article Grid -->
-                <!-- <?php if (have_posts()) : while (have_posts()) : the_post(); ?> -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16" id="posts-grid">
 
-                    <!-- Post 1 -->
+                    <!-- Post 1: FPV System -->
                     <article class="blog-card group">
-                        <a href="post.html" class="block" id="post-1">
+                        <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
-                                <!-- <?php the_post_thumbnail('medium_large', ['class' => 'w-full h-full object-cover']); ?> -->
                                 <div class="w-full h-full flex items-center justify-center text-muted">
                                     <svg class="w-10 h-10 opacity-20" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3 mb-3">
+                            <div class="flex items-center gap-3 mb-3 font-body">
                                 <span class="text-micro font-semibold uppercase tracking-[0.1em] text-steel">Tech</span>
                                 <span class="text-micro text-muted">&middot;</span>
                                 <time class="text-micro text-muted" datetime="2025-05-28">28. 5. 2025</time>
                             </div>
-                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug">
+                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug tracking-tight">
                                 FPV systém nové generace: Co přinášíme v roce 2025
                             </h3>
                             <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -454,20 +357,20 @@
                         </a>
                     </article>
 
-                    <!-- Post 2 -->
+                    <!-- Post 2: Honza's Story -->
                     <article class="blog-card group">
-                        <a href="post.html" class="block" id="post-2">
+                        <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
                                     <svg class="w-10 h-10 opacity-20" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3 mb-3">
+                            <div class="flex items-center gap-3 mb-3 font-body">
                                 <span class="text-micro font-semibold uppercase tracking-[0.1em] text-steel">Příběhy</span>
                                 <span class="text-micro text-muted">&middot;</span>
                                 <time class="text-micro text-muted" datetime="2025-05-15">15. 5. 2025</time>
                             </div>
-                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug">
+                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug tracking-tight">
                                 Příběh Honzy: „Poprvé jsem letěl, i když nemůžu chodit"
                             </h3>
                             <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -476,20 +379,20 @@
                         </a>
                     </article>
 
-                    <!-- Post 3 -->
+                    <!-- Post 3: Open Doors VM -->
                     <article class="blog-card group">
-                        <a href="post.html" class="block" id="post-3">
+                        <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
                                     <svg class="w-10 h-10 opacity-20" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3 mb-3">
+                            <div class="flex items-center gap-3 mb-3 font-body">
                                 <span class="text-micro font-semibold uppercase tracking-[0.1em] text-steel">Akce</span>
                                 <span class="text-micro text-muted">&middot;</span>
                                 <time class="text-micro text-muted" datetime="2025-04-20">20. 4. 2025</time>
                             </div>
-                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug">
+                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug tracking-tight">
                                 Den otevřených dveří ve Vysokém Mýtě
                             </h3>
                             <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -498,20 +401,20 @@
                         </a>
                     </article>
 
-                    <!-- Post 4 -->
+                    <!-- Post 4: RC gliders FPV -->
                     <article class="blog-card group">
-                        <a href="post.html" class="block" id="post-4">
+                        <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
                                     <svg class="w-10 h-10 opacity-20" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3 mb-3">
+                            <div class="flex items-center gap-3 mb-3 font-body">
                                 <span class="text-micro font-semibold uppercase tracking-[0.1em] text-steel">Tech</span>
                                 <span class="text-micro text-muted">&middot;</span>
                                 <time class="text-micro text-muted" datetime="2025-03-10">10. 3. 2025</time>
                             </div>
-                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug">
+                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug tracking-tight">
                                 RC letouny pro FPV: Jak vybíráme správný model
                             </h3>
                             <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -520,20 +423,20 @@
                         </a>
                     </article>
 
-                    <!-- Post 5 -->
+                    <!-- Post 5: Rehab Collaboration -->
                     <article class="blog-card group">
-                        <a href="post.html" class="block" id="post-5">
+                        <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
                                     <svg class="w-10 h-10 opacity-20" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3 mb-3">
+                            <div class="flex items-center gap-3 mb-3 font-body">
                                 <span class="text-micro font-semibold uppercase tracking-[0.1em] text-steel">Příběhy</span>
                                 <span class="text-micro text-muted">&middot;</span>
                                 <time class="text-micro text-muted" datetime="2025-02-18">18. 2. 2025</time>
                             </div>
-                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug">
+                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug tracking-tight">
                                 Spolupráce s rehabilitačními centry
                             </h3>
                             <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -542,20 +445,20 @@
                         </a>
                     </article>
 
-                    <!-- Post 6 -->
+                    <!-- Post 6: FPV accessibility future -->
                     <article class="blog-card group">
-                        <a href="post.html" class="block" id="post-6">
+                        <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
                                     <svg class="w-10 h-10 opacity-20" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3 mb-3">
+                            <div class="flex items-center gap-3 mb-3 font-body">
                                 <span class="text-micro font-semibold uppercase tracking-[0.1em] text-steel">Tech</span>
                                 <span class="text-micro text-muted">&middot;</span>
                                 <time class="text-micro text-muted" datetime="2025-01-05">5. 1. 2025</time>
                             </div>
-                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug">
+                            <h3 class="blog-card-title text-card-title font-semibold text-ink mb-2 leading-snug tracking-tight">
                                 Budoucnost FPV přístupnosti: Kam směřujeme
                             </h3>
                             <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -565,128 +468,14 @@
                     </article>
 
                 </div>
-                <!-- <?php endwhile; endif; ?> -->
 
-                <!-- Load More -->
+                <!-- Stark Minimalist Pagination -->
                 <div class="flex justify-center mt-14 md:mt-20">
-                    <a href="blog.html" id="load-more-posts" class="inline-flex items-center px-8 py-3 border border-hairline text-body-sm font-semibold text-steel rounded-pill hover:border-ink hover:text-ink transition-colors">
-                        <!-- <?php next_posts_link('Načíst další články'); ?> -->
+                    <button id="load-more-posts" class="inline-flex items-center px-8 py-3 border border-hairline text-body-sm font-semibold text-steel rounded-pill hover:border-ink hover:text-ink transition-colors bg-canvas">
                         Načíst další články
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Divider -->
-        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
-            <hr class="border-hairline">
-        </div>
-
-
-        <!-- ============================================= -->
-        <!-- 5. TECH / HARDWARE BLOCK — Static Grid -->
-        <!-- ============================================= -->
-        <section id="tech-block" class="py-16 md:py-24 lg:py-32" aria-label="Naše technika">
-            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
-
-                <!-- Section Header -->
-                <div class="mb-12 md:mb-16 max-w-2xl">
-                    <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-3">Technika</p>
-                    <h2 class="text-heading-md font-semibold text-ink-strong mb-4">Jak to funguje</h2>
-                    <p class="text-body text-steel font-body">
-                        Unikátní propojení virtuální reality s&nbsp;reálným létáním a&nbsp;řízením. Každý prvek systému je optimalizovaný pro maximální dostupnost.
-                    </p>
+                    </button>
                 </div>
 
-                <!-- Tech Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-hairline rounded-2xl overflow-hidden" id="tech-grid">
-                    
-                    <!-- FPV Technology -->
-                    <div class="gear-card p-8 md:p-10 lg:p-12 flex flex-col border-b md:border-b-0 border-hairline" id="gear-fpv">
-                        <div class="w-12 h-12 mb-6 flex items-center justify-center">
-                            <svg class="w-8 h-8 text-ink" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-card-title font-semibold text-ink mb-3">FPV brýle</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Využíváme nejmodernější FPV brýle pro autentický zážitek z&nbsp;pilotování. Nízká latence a&nbsp;vysoké rozlišení zajišťují pocit skutečného letu.
-                        </p>
-                    </div>
-
-                    <!-- RC Planes -->
-                    <div class="gear-card p-8 md:p-10 lg:p-12 flex flex-col border-b md:border-b-0 border-hairline" id="gear-rc">
-                        <div class="w-12 h-12 mb-6 flex items-center justify-center">
-                            <svg class="w-8 h-8 text-ink" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-card-title font-semibold text-ink mb-3">RC letouny</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Reálné dálkově řízené modely propojené s&nbsp;VR systémem v&nbsp;reálném čase. Každý letoun je vybaven HD kamerou a&nbsp;stabilizací.
-                        </p>
-                    </div>
-
-                    <!-- Accessibility -->
-                    <div class="gear-card p-8 md:p-10 lg:p-12 flex flex-col" id="gear-accessibility">
-                        <div class="w-12 h-12 mb-6 flex items-center justify-center">
-                            <svg class="w-8 h-8 text-ink" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-card-title font-semibold text-ink mb-3">Dostupnost</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Umožňujeme létání lidem, kterým běžné podmínky neumožňují. Systém je navržen pro ovládání s&nbsp;minimálními fyzickými nároky.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Stats Row -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 md:mt-16 pt-12 md:pt-16 border-t border-hairline" id="stats-row">
-                    <div>
-                        <p class="text-heading-lg font-semibold text-ink-strong">50+</p>
-                        <p class="text-body-sm text-steel mt-1">účastníků programu</p>
-                    </div>
-                    <div>
-                        <p class="text-heading-lg font-semibold text-ink-strong">12</p>
-                        <p class="text-body-sm text-steel mt-1">akcí ročně</p>
-                    </div>
-                    <div>
-                        <p class="text-heading-lg font-semibold text-ink-strong">5</p>
-                        <p class="text-body-sm text-steel mt-1">letounů ve flotile</p>
-                    </div>
-                    <div>
-                        <p class="text-heading-lg font-semibold text-ink-strong">3</p>
-                        <p class="text-body-sm text-steel mt-1">RC auta</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ============================================= -->
-        <!-- CTA BAND — Want to try flying? -->
-        <!-- ============================================= -->
-        <section id="cta-band" class="bg-ink text-canvas" aria-label="Výzva k akci">
-            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32">
-                <div class="max-w-2xl">
-                    <h2 class="text-display font-semibold text-canvas mb-6 leading-tight">
-                        Chcete si vyzkoušet<br>létání?
-                    </h2>
-                    <p class="text-body-lg text-muted mb-10 font-body max-w-lg">
-                        Navštivte nás a&nbsp;usedněte do virtuálního kokpitu letadla nebo auta. Pro vážné zájemce a&nbsp;partnery rádi připravíme individuální předvedení.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="kontakt.html" id="cta-contact" class="inline-flex items-center px-7 py-3 bg-canvas text-ink text-body-sm font-semibold rounded-pill hover:bg-surface transition-colors">
-                            Kontaktujte nás
-                        </a>
-                        <a href="#blog-feed" id="cta-blog" class="inline-flex items-center px-7 py-3 border border-muted text-muted text-body-sm font-semibold rounded-pill hover:border-canvas hover:text-canvas transition-colors">
-                            Přečíst na blogu
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -694,12 +483,10 @@
 
 
     <!-- ============================================= -->
-    <!-- 6. FOOTER — Stark & Functional -->
+    <!-- 5. FOOTER — Stark & Functional -->
     <!-- ============================================= -->
     <footer id="site-footer" class="bg-ink text-canvas" role="contentinfo">
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
-
-
 
             <!-- Footer Grid -->
             <div class="py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
@@ -729,7 +516,6 @@
                 <!-- Column 2: Navigation -->
                 <div>
                     <p class="text-body-sm font-semibold text-canvas mb-4">Navigace</p>
-                    <!-- <?php wp_nav_menu(['theme_location' => 'footer-nav']); ?> -->
                     <ul class="space-y-2.5">
                         <li><a href="o-nas.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">O nás</a></li>
                         <li><a href="blog.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Blog</a></li>
@@ -740,7 +526,6 @@
                 <!-- Column 3: Blog Categories -->
                 <div>
                     <p class="text-body-sm font-semibold text-canvas mb-4">Kategorie</p>
-                    <!-- <?php wp_list_categories(['title_li' => '']); ?> -->
                     <ul class="space-y-2.5">
                         <li><a href="/kategorie/tech" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Tech</a></li>
                         <li><a href="/kategorie/pribehy" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Příběhy</a></li>
@@ -786,10 +571,8 @@
         function handleScroll() {
             if (window.scrollY > scrollThreshold) {
                 header.classList.add('header-scrolled');
-                header.classList.remove('header-dark');
             } else {
                 header.classList.remove('header-scrolled');
-                header.classList.add('header-dark');
             }
         }
 
@@ -822,13 +605,14 @@
             });
         });
 
-        // Category filter interaction (visual only)
+        // Category filter interaction (visual toggling)
         const catPills = document.querySelectorAll('.cat-pill');
         catPills.forEach(pill => {
             pill.addEventListener('click', () => {
                 catPills.forEach(p => {
                     p.classList.remove('bg-ink', 'text-canvas');
                     p.classList.add('border', 'border-hairline', 'text-steel', 'bg-canvas');
+                    p.setAttribute('aria-selected', 'false');
                 });
                 pill.classList.remove('border', 'border-hairline', 'text-steel', 'bg-canvas');
                 pill.classList.add('bg-ink', 'text-canvas');
@@ -859,22 +643,6 @@
             card.style.transform = 'translateY(20px)';
             card.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
             observer.observe(card);
-        });
-
-        // Observe tech cards
-        document.querySelectorAll('.gear-card').forEach((card, i) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(16px)';
-            card.style.transition = `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`;
-            observer.observe(card);
-        });
-
-        // Observe stats
-        document.querySelectorAll('#stats-row > div').forEach((stat, i) => {
-            stat.style.opacity = '0';
-            stat.style.transform = 'translateY(12px)';
-            stat.style.transition = `opacity 0.4s ease ${i * 0.1}s, transform 0.4s ease ${i * 0.1}s`;
-            observer.observe(stat);
         });
     </script>
 

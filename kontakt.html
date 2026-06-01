@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podporovatelé — Eiva</title>
-    <meta name="description" content="Partneři a podporovatelé projektu Eiva. Díky nim můžeme přinášet FPV technologie a virtuální realitu lidem s omezenou pohyblivostí.">
+    <title>Kontakt — Eiva</title>
+    <meta name="description" content="Napište nám. Zde najdete kontaktní, fakturační a sociální údaje pro projekt Eiva.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://eiva.cz/podporovatele/">
+    <link rel="canonical" href="https://eiva.cz/kontakt/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Podporovatelé — Eiva">
-    <meta property="og:description" content="Kdo stojí za projektem Eiva. Naši partneři a podporovatelé.">
+    <meta property="og:title" content="Kontakt — Eiva">
+    <meta property="og:description" content="Spojte se s námi. Kontakty a fakturační údaje studentské firmy Eiva.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://eiva.cz/podporovatele/">
+    <meta property="og:url" content="https://eiva.cz/kontakt/">
 
     <!-- Fonts: DM Sans (Minimax primary) + Inter (body fallback) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,12 +83,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Newsletter input focus */
-        .newsletter-input:focus {
-            outline: none;
-            border-color: #0a0a0a;
-        }
-
         /* Mobile menu */
         .mobile-nav {
             transform: translateY(-100%);
@@ -140,32 +134,31 @@
         .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
         .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
 
-        /* =============================================
-           LOGO GRID — Grayscale to Color hover
-           ============================================= */
-
-        .logo-tile {
-            transition: opacity 300ms ease, transform 200ms ease;
-            opacity: 0.4;
-        }
-        .logo-tile:hover {
-            opacity: 1;
-            transform: scale(1.02);
-        }
-
-        /* For actual logo images: grayscale by default */
-        .logo-tile img {
-            filter: grayscale(100%) contrast(0.8);
-            transition: filter 300ms ease;
-        }
-        .logo-tile:hover img {
-            filter: grayscale(0%) contrast(1);
+        /* Minimal Contact Form Input styling */
+        .form-input {
+            border: none;
+            border-bottom: 1px solid #e5e7eb;
+            background: transparent;
+            padding: 0.75rem 0;
+            width: 100%;
+            transition: border-color 200ms ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #0a0a0a;
         }
 
-        /* Typography-based placeholder logos */
-        .logo-placeholder {
-            user-select: none;
-            letter-spacing: -0.02em;
+        .form-input:focus {
+            outline: none;
+            border-color: #000000;
+            border-bottom-width: 2px;
+        }
+
+        /* Grayscale Map custom container styling */
+        .map-placeholder {
+            background-color: #f7f8fa;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0,0,0,0.02) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0,0,0,0.02) 0%, transparent 40%);
         }
     </style>
 </head>
@@ -173,11 +166,11 @@
 <body class="bg-canvas text-ink font-sans antialiased">
 
     <!-- ============================================= -->
-    <!-- HEADER — Identical to main page              -->
+    <!-- 1. HEADER — Extremely Minimal -->
     <!-- ============================================= -->
     <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
-            <nav class="flex items-center justify-between h-16 md:h-20" aria-label="Hlavni navigace">
+            <nav class="flex items-center justify-between h-16 md:h-20" aria-label="Hlavní navigace">
                 
                 <!-- Logo -->
                 <a href="index.html" id="site-logo" class="hover:opacity-70 transition-opacity">
@@ -188,7 +181,7 @@
                 <ul class="hidden md:flex items-center gap-8" id="desktop-nav">
                     <li>
                         <a href="o-nas.html" class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">
-                            O nas
+                            O nás
                         </a>
                     </li>
                     <li>
@@ -220,13 +213,13 @@
 
         <!-- Mobile Navigation Overlay -->
         <div id="mobile-nav" class="mobile-nav fixed inset-0 bg-canvas z-40 flex flex-col items-center justify-center md:hidden">
-            <button id="mobile-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="Zavrit menu">
+            <button id="mobile-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="Zavřít menu">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>
                 </svg>
             </button>
             <ul class="flex flex-col items-center gap-8">
-                <li><a href="o-nas.html" class="text-heading-md font-semibold text-ink">O nas</a></li>
+                <li><a href="o-nas.html" class="text-heading-md font-semibold text-ink">O nás</a></li>
                 <li><a href="blog.html" class="text-heading-md font-semibold text-ink">Blog</a></li>
                 <li><a href="podporovatele.html" class="text-heading-md font-semibold text-ink">Podporovatelé</a></li>
                 <li><a href="kontakt.html" class="text-heading-md font-semibold text-ink">Kontaktujte nás</a></li>
@@ -238,36 +231,21 @@
     <main id="content" role="main">
 
         <!-- ============================================= -->
-        <!-- PAGE HERO — Massive Typography              -->
+        <!-- 2. HERO — Stark Typography Header -->
         <!-- ============================================= -->
-        <section id="page-hero" class="relative pt-32 md:pt-44 pb-16 md:pb-24 overflow-hidden min-h-[50vh] md:min-h-[60vh] flex items-end" aria-label="Podporovatele">
-            <!-- Background Video -->
-            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-                <source src="http://eiva.cz/wp-content/uploads/2026/02/JaExpoEiva-Trim-1.mp4" type="video/mp4">
-                Váš prohlížeč nepodporuje přehrávání videa.
-            </video>
-            
-            <!-- Dark Overlay -->
-            <div class="absolute inset-0 bg-ink/65 z-10"></div>
-
-            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12 w-full relative z-20">
+        <section id="hero" class="relative pt-32 md:pt-44 pb-12 md:pb-16 bg-canvas" aria-label="Kontakt">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12 w-full">
                 <!-- Overline -->
-                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-6 md:mb-8 animate-fade-in animate-delay-1">
-                    Nasi partneri
+                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-4 animate-fade-in animate-delay-1">
+                    Napište nám
                 </p>
 
                 <!-- Headline -->
-                <h1 class="text-hero font-semibold text-canvas max-w-3xl mb-8 md:mb-10 animate-fade-in animate-delay-2">
-                    Kdo stoji<br>za&nbsp;nami
+                <h1 class="text-hero font-semibold text-ink-strong max-w-4xl animate-fade-in animate-delay-2">
+                    Kontakt
                 </h1>
-
-                <!-- Description -->
-                <p class="text-subtitle md:text-body-lg text-muted max-w-2xl animate-fade-in animate-delay-3 font-body">
-                    Nase mise&nbsp;&mdash; zpristupnit letani a&nbsp;zavodeni lidem s&nbsp;telesnym postizenim prostrednictvim FPV technologii a&nbsp;virtualni reality&nbsp;&mdash; by nebyla mozna bez podpory techto organizaci a&nbsp;partneru.
-                </p>
             </div>
         </section>
-
 
         <!-- Divider -->
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
@@ -276,104 +254,124 @@
 
 
         <!-- ============================================= -->
-        <!-- PARTNERS & SUPPORTERS — Clean Grids & Text    -->
+        <!-- 3. SPLIT LAYOUT — 2 Columns on Desktop -->
         <!-- ============================================= -->
-        <section id="logo-grid" class="py-16 md:py-24 lg:py-32" aria-label="Partneři a podporovatelé">
+        <section id="contact-split" class="py-16 md:py-24 lg:py-32 bg-canvas">
             <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+                    
+                    <!-- LEFT COLUMN: Contact & Billing Details -->
+                    <div class="lg:col-span-5 flex flex-col justify-between">
+                        <div>
+                            <!-- Bold Physical Location -->
+                            <h2 class="text-heading-md font-bold text-ink-strong mb-8 tracking-tight">
+                                Vysoké Mýto,<br>Česká republika
+                            </h2>
 
-                <!-- Section Label -->
-                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-12 md:mb-16">
-                    Podporovatelé &amp; partneři
-                </p>
+                            <!-- General Email -->
+                            <div class="mb-10 font-body">
+                                <span class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-1.5">Obecný kontakt</span>
+                                <a href="mailto:info@eiva.cz" class="text-body-lg font-medium text-ink hover:underline decoration-1 underline-offset-4">
+                                    info@eiva.cz
+                                </a>
+                            </div>
 
-                <!-- The Grid of Cards -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="partners-grid">
+                            <!-- Team Direct Contacts -->
+                            <div class="space-y-6 mb-12 font-body">
+                                <span class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom">Tým Eiva</span>
+                                
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-baseline border-b border-hairline/60 pb-3">
+                                    <span class="font-medium text-ink">Jakub Fous <span class="text-caption text-stone-custom font-normal ml-1">PR Management</span></span>
+                                    <a href="tel:+420776572722" class="text-body-sm text-steel hover:text-ink font-mono mt-1 md:mt-0 transition-colors">+420 776 572 722</a>
+                                </div>
 
-                    <!-- Partner Card: Evropská unie -->
-                    <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                        <!-- Logo Placeholder Slot -->
-                        <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Evropská unie">
-                            <div class="logo-placeholder">
-                                <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mb-1.5">Spolufinancováno</span>
-                                <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">Evropská unie</span>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-baseline border-b border-hairline/60 pb-3">
+                                    <span class="font-medium text-ink">Tomáš Votřel <span class="text-caption text-stone-custom font-normal ml-1">Technology leader</span></span>
+                                    <a href="tel:+420737360298" class="text-body-sm text-steel hover:text-ink font-mono mt-1 md:mt-0 transition-colors">+420 737 360 298</a>
+                                </div>
+
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-baseline border-b border-hairline/60 pb-3">
+                                    <span class="font-medium text-ink">Ing. Martin Štěpánek <span class="text-caption text-stone-custom font-normal ml-1">Mentor</span></span>
+                                    <a href="tel:+420724084966" class="text-body-sm text-steel hover:text-ink font-mono mt-1 md:mt-0 transition-colors">+420 724 084 966</a>
+                                </div>
                             </div>
                         </div>
-                        <!-- Content -->
-                        <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Evropská unie</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Evropská unie je pro nás klíčovým partnerem, který vtiskl projektu EIVA pečeť kvality. Její podpora pro nás není jen finanční pomocí, ale především potvrzením, že naše technologická vize se společenským přesahem má globální smysl. Díky tomuto spolufinancování můžeme neustále zdokonalovat přenos obrazu, rozšiřovat flotilu letadel i aut a zpřístupňovat tak virtuální pilotáž co nejširší skupině lidí.
-                        </p>
+
+                        <!-- Billing Details (Fakturační údaje) -->
+                        <div class="mt-8 border-t border-hairline pt-8 font-body">
+                            <span class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-4">Fakturační údaje</span>
+                            
+                            <table class="w-full text-left text-body-sm text-steel">
+                                <tbody>
+                                    <tr class="align-top">
+                                        <td class="pr-4 py-1.5 font-medium text-charcoal w-24">Subjekt</td>
+                                        <td class="py-1.5">Střední škola technická Vysoké Mýto <span class="block text-micro text-stone-custom mt-0.5">(zastřešující studentskou firmu Eiva)</span></td>
+                                    </tr>
+                                    <tr class="align-top">
+                                        <td class="pr-4 py-1.5 font-medium text-charcoal">Adresa</td>
+                                        <td class="py-1.5">Mládežnická 380, 566 01 Vysoké Mýto</td>
+                                    </tr>
+                                    <tr class="align-top">
+                                        <td class="pr-4 py-1.5 font-medium text-charcoal">IČO</td>
+                                        <td class="py-1.5 font-mono">150 28 585</td>
+                                    </tr>
+                                    <tr class="align-top">
+                                        <td class="pr-4 py-1.5 font-medium text-charcoal">DIČ</td>
+                                        <td class="py-1.5 font-mono">CZ15028585</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Stark Social Media Links -->
+                        <div class="mt-12 font-body">
+                            <span class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-3">Sledujte nás</span>
+                            <div class="flex gap-6">
+                                <a href="https://facebook.com" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">Facebook</a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">Instagram</a>
+                                <a href="https://youtube.com" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">YouTube</a>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Partner Card: Technická Vysoké Mýto -->
-                    <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                        <!-- Logo Placeholder Slot -->
-                        <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Technická Vysoké Mýto">
-                            <div class="logo-placeholder">
-                                <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">TECHNICKÁ</span>
-                                <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">Vysoké Mýto</span>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Technická Vysoké Mýto</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Klíčový pilíř, ze kterého projekt EIVA vzešel. Poskytuje nám nezbytné zázemí, technické dílny a odbornou podporu mentorů, bez nichž by vývoj EIVY nebyl možný. Škola aktivně podporuje a motivuje studentské inovace, které mají silný společenský přesah, a dokazuje, že moderní technické vzdělávání jde ruku v ruce s humanitární misí.
-                        </p>
-                    </div>
+                    <!-- RIGHT COLUMN: Radically Minimalist Contact Form -->
+                    <div class="lg:col-span-7 flex flex-col justify-start">
+                        <div class="bg-surface p-8 md:p-12 rounded-2xl border border-hairline/60">
+                            <h3 class="text-heading-sm font-semibold text-ink-strong mb-8">Napište nám zprávu</h3>
+                            
+                            <form action="#" method="POST" class="space-y-8">
+                                <!-- Name field -->
+                                <div class="relative">
+                                    <label for="name" class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-1">Jméno</label>
+                                    <input type="text" id="name" name="name" required placeholder="Vaše celé jméno" class="form-input">
+                                </div>
 
-                    <!-- Partner Card: Synergy Network -->
-                    <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                        <!-- Logo Placeholder Slot -->
-                        <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Synergy Network">
-                            <div class="logo-placeholder">
-                                <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">SYNERGY</span>
-                                <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">Network</span>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Synergy Network</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Synergy nám pomáhá medializovat projekt EIVA. Jejich odborná pomoc je pro naši komunikaci zásadní. Synergy nám pomáhá s natáčením obsahu a zajištěním potřebné techniky, čímž nám umožňuje efektivně sdílet náš příběh svobody v oblacích s veřejností.
-                        </p>
-                    </div>
+                                <!-- Email field -->
+                                <div class="relative">
+                                    <label for="email" class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-1">E-mail</label>
+                                    <input type="email" id="email" name="email" required placeholder="vas@email.cz" class="form-input">
+                                </div>
 
-                    <!-- Partner Card: Pardubický kraj -->
-                    <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                        <!-- Logo Placeholder Slot -->
-                        <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Pardubický kraj">
-                            <div class="logo-placeholder">
-                                <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">Pardubický</span>
-                                <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">Kraj</span>
-                            </div>
-                        </div>
-                        <!-- Content -->
-                        <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Pardubický kraj</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Projekt EIVA se těší oficiální záštitě Pardubického kraje, což pro nás představuje klíčové institucionální uznání. Pan Josef Kozel, radní pro školství Pardubického kraje, nejenže tuto záštitu projektu poskytl, ale aktivně se zapojil do jeho prezentace. Stal se naším prvním testovacím pilotem během akce k výročí letu Jana Kašpara, čímž veřejně potvrdil podporu kraje inovacím s tak silným sociálním přesahem.
-                        </p>
-                    </div>
+                                <!-- Message field -->
+                                <div class="relative">
+                                    <label for="message" class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-1">Zpráva</label>
+                                    <textarea id="message" name="message" rows="4" required placeholder="Sem napište svou zprávu..." class="form-input resize-none"></textarea>
+                                </div>
 
-                    <!-- Partner Card: Filament PM -->
-                    <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                        <!-- Logo Placeholder Slot -->
-                        <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Filament PM">
-                            <div class="logo-placeholder">
-                                <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">FILAMENT</span>
-                                <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">PM</span>
-                            </div>
+                                <!-- Submit Button -->
+                                <div class="pt-4">
+                                    <button type="submit" class="w-full py-4 bg-ink text-canvas font-semibold rounded-pill hover:bg-charcoal transition-colors tracking-wide text-body-sm">
+                                        Odeslat zprávu
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <!-- Content -->
-                        <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Filament PM</h3>
-                        <p class="text-body-sm text-steel font-body leading-relaxed">
-                            Kvalitní 3D tisk je pro vývoj našeho rozhraní nezbytný. Jsme hrdí, že za námi stojí právě Filamenty PM – tradiční český výrobce, jehož materiály nám pomáhají stavět odolný a funkční hardware pro našeho testera Davídka. Společně tiskneme budoucnost bez bariér.
-                        </p>
                     </div>
 
                 </div>
-
             </div>
         </section>
-
 
         <!-- Divider -->
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
@@ -382,30 +380,34 @@
 
 
         <!-- ============================================= -->
-        <!-- CTA BLOCK — Become a Partner                 -->
+        <!-- 4. GRAYSCALE MAP PLACEHOLDER — Centered on VM -->
         <!-- ============================================= -->
-        <section id="partner-cta" class="py-20 md:py-32 lg:py-40" aria-label="Stante se partnerem">
+        <section id="map-section" class="py-16 md:py-24 bg-canvas" aria-label="Kde nás najdete">
             <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
-                <div class="max-w-xl">
-
-                    <!-- Overline -->
-                    <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-6">
-                        Spoluprace
-                    </p>
-
-                    <!-- Headline -->
-                    <h2 class="text-heading-lg font-semibold text-ink-strong mb-6 leading-tight">
-                        Chcete se stat<br>partnerem?
-                    </h2>
-
-                    <!-- Body -->
-                    <p class="text-body text-steel font-body mb-10 leading-relaxed max-w-md">
-                        Hledame organizace a&nbsp;firmy, ktere sdileji nasi vizi pristupneho letani. Nabizime viditelnost na akcich, v&nbsp;mediich a&nbsp;na webu. Spojte se s&nbsp;nami.
-                    </p>
-
-                    <a href="kontakt.html" id="partner-cta-button" class="inline-flex items-center px-8 py-3.5 bg-ink text-canvas text-body-sm font-semibold rounded-pill hover:bg-charcoal transition-colors">
-                        Napiste nam
-                    </a>
+                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-6">
+                    Kde nás najdete
+                </p>
+                
+                <!-- Stark Grayscale Map Container -->
+                <div class="w-full aspect-[21/9] md:aspect-[3/1] rounded-2xl overflow-hidden border border-hairline/80 relative map-placeholder flex flex-col items-center justify-center text-center p-6">
+                    <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#000000 1px, transparent 1px); background-size: 16px 16px;"></div>
+                    
+                    <!-- Map Pin Icon + Label -->
+                    <div class="relative z-10 flex flex-col items-center max-w-sm">
+                        <div class="w-12 h-12 bg-ink text-canvas rounded-full flex items-center justify-center shadow-sm mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-ink-strong mb-1">Mládežnická 380, Vysoké Mýto</h4>
+                        <p class="text-caption text-steel font-body">Zázemí Střední školy technické</p>
+                        
+                        <!-- Open in extern map link -->
+                        <a href="https://mapy.cz/zakladni?q=Ml%C3%A1de%C5%BEnick%C3%A1%20380%2C%20Vysok%C3%A9%20M%C3%BDto" target="_blank" rel="noopener" class="text-caption font-semibold text-ink hover:underline mt-4 tracking-wider uppercase underline-offset-4 decoration-1">
+                            Otevřít na Mapy.cz
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -414,12 +416,10 @@
 
 
     <!-- ============================================= -->
-    <!-- FOOTER — Identical to main page              -->
+    <!-- 5. FOOTER — Stark & Functional -->
     <!-- ============================================= -->
     <footer id="site-footer" class="bg-ink text-canvas" role="contentinfo">
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
-
-
 
             <!-- Footer Grid -->
             <div class="py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
@@ -430,7 +430,7 @@
                         <img src="https://eiva.cz/wp-content/uploads/2026/01/EIVA-CERNA-LOGO.svg" alt="Eiva" class="h-5 w-auto" style="filter: invert(1) brightness(2);">
                     </a>
                     <p class="text-body-sm text-muted font-body leading-relaxed mb-6">
-                        Hlavou v&nbsp;oblacich,<br>nohama na&nbsp;zemi.
+                        Hlavou v&nbsp;oblacích,<br>nohama na&nbsp;zemi.
                     </p>
                     <!-- Social -->
                     <div class="flex gap-4">
@@ -449,9 +449,8 @@
                 <!-- Column 2: Navigation -->
                 <div>
                     <p class="text-body-sm font-semibold text-canvas mb-4">Navigace</p>
-                    <!-- <?php wp_nav_menu(['theme_location' => 'footer-nav']); ?> -->
                     <ul class="space-y-2.5">
-                        <li><a href="o-nas.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">O nas</a></li>
+                        <li><a href="o-nas.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">O nás</a></li>
                         <li><a href="blog.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Blog</a></li>
                         <li><a href="kontakt.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Kontaktujte nás</a></li>
                     </ul>
@@ -461,10 +460,10 @@
                 <div>
                     <p class="text-body-sm font-semibold text-canvas mb-4">Kategorie</p>
                     <ul class="space-y-2.5">
-                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Tech</a></li>
-                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Pribehy</a></li>
-                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Akce</a></li>
-                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Partneri</a></li>
+                        <li><a href="/kategorie/tech" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Tech</a></li>
+                        <li><a href="/kategorie/pribehy" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Příběhy</a></li>
+                        <li><a href="/kategorie/akce" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Akce</a></li>
+                        <li><a href="/kategorie/partneri" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Partneři</a></li>
                     </ul>
                 </div>
 
@@ -472,8 +471,8 @@
                 <div>
                     <p class="text-body-sm font-semibold text-canvas mb-4">Kontakt</p>
                     <ul class="space-y-2.5">
-                        <li class="text-body-sm text-muted font-body">Vysoke Myto</li>
-                        <li class="text-body-sm text-muted font-body">Ceska republika</li>
+                        <li class="text-body-sm text-muted font-body">Vysoké Mýto</li>
+                        <li class="text-body-sm text-muted font-body">Česká republika</li>
                         <li><a href="mailto:info@eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">info@eiva.cz</a></li>
                         <li><a href="https://eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">eiva.cz</a></li>
                     </ul>
@@ -483,11 +482,11 @@
             <!-- Footer Bottom -->
             <div class="py-6 border-t border-charcoal flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <p class="text-micro text-steel font-body">
-                    &copy; 2025 Eiva. Vsechna prava vyhrazena.
+                    &copy; 2025 Eiva. Všechna práva vyhrazena.
                 </p>
                 <div class="flex gap-6">
-                    <a href="#" class="text-micro text-steel hover:text-muted transition-colors font-body">Ochrana soukromi</a>
-                    <a href="#" class="text-micro text-steel hover:text-muted transition-colors font-body">Cookies</a>
+                    <a href="/ochrana-soukromi" class="text-micro text-steel hover:text-muted transition-colors font-body">Ochrana soukromí</a>
+                    <a href="/cookies" class="text-micro text-steel hover:text-muted transition-colors font-body">Cookies</a>
                 </div>
             </div>
         </div>
@@ -495,7 +494,7 @@
 
 
     <!-- ============================================= -->
-    <!-- JavaScript: Header scroll + mobile menu      -->
+    <!-- JavaScript: Header scroll + mobile menu -->
     <!-- ============================================= -->
     <script>
         // Sticky header with background on scroll
@@ -505,10 +504,8 @@
         function handleScroll() {
             if (window.scrollY > scrollThreshold) {
                 header.classList.add('header-scrolled');
-                header.classList.remove('header-dark');
             } else {
                 header.classList.remove('header-scrolled');
-                header.classList.add('header-dark');
             }
         }
 
@@ -532,45 +529,13 @@
             document.body.style.overflow = '';
         });
 
+        // Close mobile nav on link click
         mobileNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
                 mobileToggle.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             });
-        });
-
-        // Intersection Observer — staggered logo tile reveal
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px 0px -40px 0px',
-            threshold: 0.1
-        };
-
-        document.querySelectorAll('.logo-tile').forEach((tile, i) => {
-            // Store the intended resting opacity (the grayscale dimmed state)
-            const restOpacity = '0.4';
-            // Start hidden for entrance animation
-            tile.style.opacity = '0';
-            tile.style.transform = 'translateY(16px)';
-            tile.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
-            
-            const tileObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Animate entrance to the dim/grayscale resting state
-                        entry.target.style.opacity = restOpacity;
-                        entry.target.style.transform = 'translateY(0)';
-                        // After entrance completes, restore hover transition timing
-                        setTimeout(() => {
-                            entry.target.style.transition = 'opacity 300ms ease, transform 200ms ease';
-                        }, 600 + i * 70);
-                        tileObserver.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            tileObserver.observe(tile);
         });
     </script>
 
