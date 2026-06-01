@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podporovatelé — Eiva</title>
+    <meta name="description"
+        content="Partneři a podporovatelé projektu Eiva. Díky nim můžeme přinášet FPV technologie a virtuální realitu lidem s omezenou pohyblivostí.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://eiva.cz/podporovatele/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Podporovatelé — Eiva">
+    <meta property="og:description" content="Kdo stojí za projektem Eiva. Naši partneři a podporovatelé.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eiva.cz/podporovatele/">
+
+    <!-- Fonts: DM Sans (Minimax primary) + Inter (body fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['DM Sans', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        'body': ['Inter', 'DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        'ink': '#0a0a0a',
+                        'ink-strong': '#000000',
+                        'charcoal': '#222222',
+                        'slate-custom': '#45515e',
+                        'steel': '#5f5f5f',
+                        'stone-custom': '#8e8e93',
+                        'muted': '#a8aab2',
+                        'canvas': '#ffffff',
+                        'surface': '#f7f8fa',
+                        'surface-soft': '#f2f3f5',
+                        'hairline': '#e5e7eb',
+                        'hairline-soft': '#eaecf0',
+                    },
+                    fontSize: {
+                        'hero': ['clamp(2.5rem, 6vw, 5rem)', { lineHeight: '1.10', letterSpacing: '-0.03em' }],
+                        'display': ['clamp(2rem, 4.5vw, 3.5rem)', { lineHeight: '1.10', letterSpacing: '-0.025em' }],
+                        'heading-lg': ['clamp(1.75rem, 3vw, 2.5rem)', { lineHeight: '1.20', letterSpacing: '-0.02em' }],
+                        'heading-md': ['clamp(1.5rem, 2.5vw, 2rem)', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
+                        'heading-sm': ['1.5rem', { lineHeight: '1.30' }],
+                        'card-title': ['1.25rem', { lineHeight: '1.40' }],
+                        'subtitle': ['1.125rem', { lineHeight: '1.60' }],
+                        'body-lg': ['1.125rem', { lineHeight: '1.75' }],
+                        'body': ['1rem', { lineHeight: '1.75' }],
+                        'body-sm': ['0.875rem', { lineHeight: '1.60' }],
+                        'caption': ['0.8125rem', { lineHeight: '1.70' }],
+                        'micro': ['0.75rem', { lineHeight: '1.50' }],
+                    },
+                    maxWidth: {
+                        'prose': '680px',
+                        'content': '1280px',
+                    },
+                    borderRadius: {
+                        'pill': '9999px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* === MINIMAX-ADAPTED DESIGN TOKENS FOR EIVA === */
+
+        ::selection {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Newsletter input focus */
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #0a0a0a;
+        }
+
+        /* Mobile menu */
+        .mobile-nav {
+            transform: translateY(-100%);
+            transition: transform 300ms ease;
+        }
+
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+
+        /* Sticky header background */
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        /* =============================================
+           LOGO GRID — Grayscale → Color hover
+           ============================================= */
+
+        .logo-tile {
+            transition: opacity 300ms ease, transform 200ms ease;
+            opacity: 0.45;
+        }
+
+        .logo-tile:hover {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+
+        /* For actual logo images — grayscale by default */
+        .logo-tile img {
+            filter: grayscale(100%) contrast(0.8);
+            transition: filter 300ms ease;
+        }
+
+        .logo-tile:hover img {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        /* Typography-based placeholder logos */
+        .logo-placeholder {
+            user-select: none;
+            letter-spacing: -0.02em;
+        }
+    </style>
+</head>
+
+<body class="bg-canvas text-ink font-sans antialiased">
+
+    <!-- ============================================= -->
+    <!-- HEADER — Identical to main page              -->
+    <!-- ============================================= -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+            <nav class="flex items-center justify-between h-16 md:h-20" aria-label="Hlavní navigace">
+
+                <!-- Logo -->
+                <a href="/" id="site-logo"
+                    class="text-2xl md:text-3xl font-semibold tracking-tight text-ink hover:opacity-70 transition-opacity">
+                    Eiva
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center gap-8" id="desktop-nav">
+                    <li>
+                        <a href="/o-nas"
+                            class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">
+                            O nás
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/podporovatele"
+                            class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">
+                            Podporovatelé
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/podporte-nas"
+                            class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">
+                            Podpořte nás
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-toggle" class="md:hidden w-10 h-10 flex items-center justify-center"
+                    aria-label="Menu" aria-expanded="false">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path class="hamburger-top" stroke-linecap="round" d="M4 7h16" />
+                        <path class="hamburger-bottom" stroke-linecap="round" d="M4 17h16" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation Overlay -->
+        <div id="mobile-nav"
+            class="mobile-nav fixed inset-0 bg-canvas z-40 flex flex-col items-center justify-center md:hidden">
+            <button id="mobile-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center"
+                aria-label="Zavřít menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </button>
+            <ul class="flex flex-col items-center gap-8">
+                <li><a href="/o-nas" class="text-heading-md font-semibold text-ink">O nás</a></li>
+                <li><a href="/blog" class="text-heading-md font-semibold text-ink">Blog</a></li>
+                <li><a href="/podporovatele" class="text-heading-md font-semibold text-ink">Podporovatelé</a></li>
+                <li><a href="/podporte-nas" class="text-heading-md font-semibold text-ink">Podpořte nás</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <main id="content" role="main">
+
+        <!-- ============================================= -->
+        <!-- PAGE HERO — Massive Typography              -->
+        <!-- ============================================= -->
+        <section id="page-hero" class="pt-32 md:pt-44 pb-16 md:pb-24" aria-label="Podporovatelé">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+
+                <!-- Overline -->
+                <p
+                    class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-6 md:mb-8 animate-fade-in animate-delay-1">
+                    Naši partneři
+                </p>
+
+                <!-- Headline -->
+                <h1
+                    class="text-hero font-semibold text-ink-strong max-w-3xl mb-8 md:mb-10 animate-fade-in animate-delay-2">
+                    Kdo stojí<br>za&nbsp;námi
+                </h1>
+
+                <!-- Description -->
+                <p class="text-subtitle md:text-body-lg text-steel max-w-2xl animate-fade-in animate-delay-3 font-body">
+                    Naše mise&nbsp;— zpřístupnit létání a&nbsp;závodění lidem s&nbsp;tělesným postižením prostřednictvím
+                    FPV technologií a&nbsp;virtuální reality&nbsp;— by nebyla možná bez podpory těchto organizací
+                    a&nbsp;partnerů.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Divider -->
+        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+            <hr class="border-hairline">
+        </div>
+
+
+        <!-- ============================================= -->
+        <!-- LOGO GRID — Sponsors & Partners              -->
+        <!-- ============================================= -->
+        <section id="logo-grid" class="py-16 md:py-24 lg:py-32" aria-label="Partneři a podporovatelé">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+
+                <!-- Section Label -->
+                <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-12 md:mb-16">
+                    Podporovatelé &amp; partneři
+                </p>
+
+                <!-- The Grid -->
+                <!-- <?php
+                    // WP Dynamic: Custom post type or ACF repeater field
+                    // if (have_rows('partners')) : while (have_rows('partners')) : the_row();
+                ?> -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-hairline" id="partners-grid">
+
+                    <!-- Partner 1: Aero Vodochody -->
+                    <a href="#" id="partner-aero"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12 group"
+                        aria-label="Aero Vodochody">
+                        <div class="logo-placeholder text-center">
+                            <span
+                                class="block text-heading-sm md:text-heading-md font-semibold text-ink-strong leading-none tracking-tight">
+                                AERO
+                            </span>
+                            <span
+                                class="block text-caption md:text-body-sm font-medium text-steel mt-1.5 uppercase tracking-[0.15em]">
+                                Vodochody
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Partner 2: Pardubický kraj -->
+                    <a href="#" id="partner-pardubice"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12 group"
+                        aria-label="Pardubický kraj">
+                        <div class="logo-placeholder text-center">
+                            <span
+                                class="block text-heading-sm md:text-heading-md font-semibold text-ink-strong leading-none tracking-tight">
+                                Pardubický
+                            </span>
+                            <span
+                                class="block text-caption md:text-body-sm font-medium text-steel mt-1.5 uppercase tracking-[0.15em]">
+                                Kraj
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Partner 3: EU Co-Funding -->
+                    <a href="#" id="partner-eu"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12 group"
+                        aria-label="Spolufinancováno EU">
+                        <div class="logo-placeholder text-center">
+                            <span
+                                class="block text-body-sm md:text-caption font-medium text-steel uppercase tracking-[0.15em] mb-1.5">
+                                Spolufinancováno
+                            </span>
+                            <span
+                                class="block text-heading-sm md:text-heading-md font-semibold text-ink-strong leading-none tracking-tight">
+                                EU
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Partner 4: Placeholder -->
+                    <a href="#" id="partner-placeholder-1"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12 group"
+                        aria-label="Partner">
+                        <div class="logo-placeholder text-center">
+                            <span
+                                class="block text-heading-sm md:text-heading-md font-semibold text-ink-strong leading-none tracking-tight">
+                                Váš
+                            </span>
+                            <span
+                                class="block text-caption md:text-body-sm font-medium text-steel mt-1.5 uppercase tracking-[0.15em]">
+                                Logo zde
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Partner 5: Placeholder image slot -->
+                    <div id="partner-placeholder-2"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12">
+                        <!-- <?php $logo = get_sub_field('logo'); if ($logo): ?>
+                            <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>" class="max-h-12 md:max-h-16 w-auto" loading="lazy">
+                        <?php endif; ?> -->
+                        <div class="w-20 h-8 bg-hairline rounded"></div>
+                    </div>
+
+                    <!-- Partner 6: Placeholder image slot -->
+                    <div id="partner-placeholder-3"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12">
+                        <div class="w-24 h-6 bg-hairline rounded"></div>
+                    </div>
+
+                    <!-- Partner 7: Placeholder image slot -->
+                    <div id="partner-placeholder-4"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12">
+                        <div class="w-16 h-10 bg-hairline rounded"></div>
+                    </div>
+
+                    <!-- Partner 8: Placeholder image slot -->
+                    <div id="partner-placeholder-5"
+                        class="logo-tile bg-canvas flex items-center justify-center aspect-[3/2] p-8 md:p-12">
+                        <div class="w-20 h-7 bg-hairline rounded"></div>
+                    </div>
+
+                </div>
+                <!-- <?php endwhile; endif; ?> -->
+
+            </div>
+        </section>
+
+
+        <!-- Divider -->
+        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+            <hr class="border-hairline">
+        </div>
+
+
+        <!-- ============================================= -->
+        <!-- CTA BLOCK — Become a Partner                 -->
+        <!-- ============================================= -->
+        <section id="partner-cta" class="py-20 md:py-32 lg:py-40" aria-label="Staňte se partnerem">
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+                <div class="max-w-xl">
+
+                    <!-- Overline -->
+                    <p class="text-micro font-medium uppercase tracking-[0.2em] text-stone-custom mb-6">
+                        Spolupráce
+                    </p>
+
+                    <!-- Headline -->
+                    <h2 class="text-heading-lg font-semibold text-ink-strong mb-6 leading-tight">
+                        Chcete se stát<br>partnerem?
+                    </h2>
+
+                    <!-- Body -->
+                    <p class="text-body text-steel font-body mb-10 leading-relaxed max-w-md">
+                        Hledáme organizace a&nbsp;firmy, které sdílejí naši vizi přístupného létání. Nabízíme
+                        viditelnost na akcích, v&nbsp;médiích a&nbsp;na webu. Spojte se s&nbsp;námi.
+                    </p>
+
+                    <!-- CTA -->
+                    <a href="/kontakt" id="partner-cta-button"
+                        class="inline-flex items-center px-8 py-3.5 bg-ink text-canvas text-body-sm font-semibold rounded-pill hover:bg-charcoal transition-colors">
+                        Napište nám
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ============================================= -->
+    <!-- FOOTER — Identical to main page              -->
+    <!-- ============================================= -->
+    <footer id="site-footer" class="bg-ink text-canvas" role="contentinfo">
+        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+
+            <!-- Newsletter -->
+            <div class="py-12 md:py-16 border-b border-charcoal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-heading-sm font-semibold text-canvas mb-2">Odběr novinek</h3>
+                        <p class="text-body-sm text-muted font-body">
+                            Žádný spam. Jen důležité novinky o&nbsp;projektu Eiva.
+                        </p>
+                    </div>
+                    <form id="newsletter-form" class="flex gap-3" action="#" method="post">
+                        <label for="newsletter-email" class="sr-only">E-mailová adresa</label>
+                        <input type="email" id="newsletter-email" name="email" placeholder="vas@email.cz" required
+                            class="newsletter-input flex-1 px-5 py-3 bg-charcoal border border-charcoal text-canvas text-body-sm rounded-pill placeholder:text-steel focus:border-canvas transition-colors">
+                        <button type="submit" id="newsletter-submit"
+                            class="px-6 py-3 bg-canvas text-ink text-body-sm font-semibold rounded-pill hover:bg-surface transition-colors whitespace-nowrap">
+                            Odebírat
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Grid -->
+            <div class="py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="col-span-2 md:col-span-1">
+                    <a href="/" class="text-xl font-semibold text-canvas block mb-4">Eiva</a>
+                    <p class="text-body-sm text-muted font-body leading-relaxed mb-6">
+                        Hlavou v&nbsp;oblacích,<br>nohama na&nbsp;zemi.
+                    </p>
+                    <!-- Social -->
+                    <div class="flex gap-4">
+                        <a href="#" aria-label="Facebook" class="text-muted hover:text-canvas transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="text-muted hover:text-canvas transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="text-muted hover:text-canvas transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div>
+                    <p class="text-body-sm font-semibold text-canvas mb-4">Navigace</p>
+                    <!-- <?php wp_nav_menu(['theme_location' => 'footer-nav']); ?> -->
+                    <ul class="space-y-2.5">
+                        <li><a href="/o-nas"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">O nás</a>
+                        </li>
+                        <li><a href="/blog"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Blog</a>
+                        </li>
+                        <li><a href="/podporte-nas"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Podpořte
+                                nás</a></li>
+                        <li><a href="/kontakt"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Blog Categories -->
+                <div>
+                    <p class="text-body-sm font-semibold text-canvas mb-4">Kategorie</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="/kategorie/tech"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Tech</a>
+                        </li>
+                        <li><a href="/kategorie/pribehy"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Příběhy</a>
+                        </li>
+                        <li><a href="/kategorie/akce"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Akce</a>
+                        </li>
+                        <li><a href="/kategorie/partneri"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Partneři</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <p class="text-body-sm font-semibold text-canvas mb-4">Kontakt</p>
+                    <ul class="space-y-2.5">
+                        <li class="text-body-sm text-muted font-body">Vysoké Mýto</li>
+                        <li class="text-body-sm text-muted font-body">Česká republika</li>
+                        <li><a href="mailto:info@eiva.cz"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">info@eiva.cz</a>
+                        </li>
+                        <li><a href="https://eiva.cz"
+                                class="text-body-sm text-muted hover:text-canvas transition-colors font-body">eiva.cz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="py-6 border-t border-charcoal flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <p class="text-micro text-steel font-body">
+                    &copy; 2025 Eiva. Všechna práva vyhrazena.
+                </p>
+                <div class="flex gap-6">
+                    <a href="/ochrana-soukromi"
+                        class="text-micro text-steel hover:text-muted transition-colors font-body">Ochrana soukromí</a>
+                    <a href="/cookies"
+                        class="text-micro text-steel hover:text-muted transition-colors font-body">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================= -->
+    <!-- JavaScript: Header scroll + mobile menu      -->
+    <!-- ============================================= -->
+    <script>
+        // Sticky header with background on scroll
+        const header = document.getElementById('site-header');
+        const scrollThreshold = 40;
+
+        function handleScroll() {
+            if (window.scrollY > scrollThreshold) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        // Mobile menu
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileClose = document.getElementById('mobile-close');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Intersection Observer — staggered logo reveal
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '';
+                    entry.target.style.transform = '';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe logo tiles for staggered reveal
+        document.querySelectorAll('.logo-tile').forEach((tile, i) => {
+            const baseOpacity = tile.style.opacity || '0.45';
+            tile.style.opacity = '0';
+            tile.style.transform = 'translateY(16px)';
+            tile.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+
+            const tileObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate in, then settle to the base grayscale opacity
+                        entry.target.style.opacity = baseOpacity;
+                        entry.target.style.transform = 'translateY(0)';
+                        // After the entrance animation, restore hover transitions
+                        setTimeout(() => {
+                            entry.target.style.transition = 'opacity 300ms ease, transform 200ms ease';
+                        }, 500 + i * 70);
+                        tileObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            tileObserver.observe(tile);
+        });
+    </script>
+
+</body>
+
+</html>

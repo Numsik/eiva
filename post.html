@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPV system nove generace: Co prinasime v roce 2025 — Eiva</title>
+    <meta name="description" content="Predstavujeme nas vylepseny FPV system s nizsi latenci a lepsi kvalitou prenosu videa pro jeste autentictejsi zazitek z letani.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://eiva.cz/blog/fpv-system-nova-generace/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FPV system nove generace — Eiva">
+    <meta property="og:description" content="Predstavujeme nas vylepseny FPV system s nizsi latenci a lepsi kvalitou prenosu videa.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eiva.cz/blog/fpv-system-nova-generace/">
+    <meta property="article:published_time" content="2025-05-28">
+
+    <!-- Fonts: DM Sans (Minimax primary) + Inter (body fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['DM Sans', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        'body': ['Inter', 'DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        'ink': '#0a0a0a',
+                        'ink-strong': '#000000',
+                        'charcoal': '#222222',
+                        'slate-custom': '#45515e',
+                        'steel': '#5f5f5f',
+                        'stone-custom': '#8e8e93',
+                        'muted': '#a8aab2',
+                        'canvas': '#ffffff',
+                        'surface': '#f7f8fa',
+                        'surface-soft': '#f2f3f5',
+                        'hairline': '#e5e7eb',
+                        'hairline-soft': '#eaecf0',
+                    },
+                    fontSize: {
+                        'hero': ['clamp(2.5rem, 6vw, 5rem)', { lineHeight: '1.10', letterSpacing: '-0.03em' }],
+                        'display': ['clamp(2rem, 4.5vw, 3.5rem)', { lineHeight: '1.10', letterSpacing: '-0.025em' }],
+                        'heading-lg': ['clamp(1.75rem, 3vw, 2.5rem)', { lineHeight: '1.20', letterSpacing: '-0.02em' }],
+                        'heading-md': ['clamp(1.5rem, 2.5vw, 2rem)', { lineHeight: '1.25', letterSpacing: '-0.01em' }],
+                        'heading-sm': ['1.5rem', { lineHeight: '1.30' }],
+                        'card-title': ['1.25rem', { lineHeight: '1.40' }],
+                        'subtitle': ['1.125rem', { lineHeight: '1.60' }],
+                        'body-lg': ['1.125rem', { lineHeight: '1.75' }],
+                        'body': ['1rem', { lineHeight: '1.75' }],
+                        'body-sm': ['0.875rem', { lineHeight: '1.60' }],
+                        'caption': ['0.8125rem', { lineHeight: '1.70' }],
+                        'micro': ['0.75rem', { lineHeight: '1.50' }],
+                    },
+                    maxWidth: {
+                        'prose': '680px',
+                        'content': '1280px',
+                    },
+                    borderRadius: {
+                        'pill': '9999px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::selection {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #0a0a0a;
+        }
+
+        .mobile-nav {
+            transform: translateY(-100%);
+            transition: transform 300ms ease;
+        }
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.6s ease-out forwards; }
+        .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        /* ==============================================
+           ARTICLE PROSE — the_content() formatting
+           ============================================== */
+        .prose-reading {
+            font-family: 'Inter', 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 1.4vw, 1.125rem);
+            line-height: 1.85;
+            color: #222222;
+            letter-spacing: 0.005em;
+        }
+
+        .prose-reading p {
+            margin-bottom: 1.75em;
+        }
+
+        .prose-reading h2 {
+            font-family: 'DM Sans', 'Inter', sans-serif;
+            font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.015em;
+            color: #0a0a0a;
+            margin-top: 2.5em;
+            margin-bottom: 0.75em;
+        }
+
+        .prose-reading h3 {
+            font-family: 'DM Sans', 'Inter', sans-serif;
+            font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+            font-weight: 600;
+            line-height: 1.30;
+            color: #0a0a0a;
+            margin-top: 2em;
+            margin-bottom: 0.625em;
+        }
+
+        .prose-reading blockquote {
+            margin: 2.5em 0;
+            padding: 0 0 0 1.5em;
+            border-left: 2px solid #0a0a0a;
+            font-style: normal;
+            color: #0a0a0a;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        .prose-reading blockquote p {
+            margin-bottom: 0;
+        }
+
+        .prose-reading a {
+            color: #0a0a0a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: opacity 150ms ease;
+        }
+        .prose-reading a:hover {
+            opacity: 0.6;
+        }
+
+        .prose-reading ul,
+        .prose-reading ol {
+            margin: 1.5em 0;
+            padding-left: 1.25em;
+        }
+
+        .prose-reading li {
+            margin-bottom: 0.5em;
+        }
+
+        .prose-reading strong {
+            font-weight: 600;
+            color: #0a0a0a;
+        }
+
+        .prose-reading img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 2em 0;
+        }
+
+        .prose-reading figure {
+            margin: 2.5em 0;
+        }
+
+        .prose-reading figcaption {
+            font-size: 0.8125rem;
+            color: #8e8e93;
+            margin-top: 0.75em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body class="bg-canvas text-ink font-sans antialiased">
+
+    <!-- ============================================= -->
+    <!-- HEADER                                       -->
+    <!-- ============================================= -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+            <nav class="flex items-center justify-between h-16 md:h-20" aria-label="Hlavni navigace">
+                <a href="index.html" id="site-logo" class="text-2xl md:text-3xl font-semibold tracking-tight text-ink hover:opacity-70 transition-opacity">
+                    Eiva
+                </a>
+                <ul class="hidden md:flex items-center gap-8" id="desktop-nav">
+                    <li><a href="index.html" class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">O nas</a></li>
+                    <li><a href="index.html#blog-feed" class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">Blog</a></li>
+                    <li><a href="podporovatele.html" class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">Podporovatelé</a></li>
+                    <li><a href="supporters.html" class="text-body-sm font-medium text-charcoal hover:text-ink transition-colors">Podporte nas</a></li>
+                </ul>
+                <button id="mobile-toggle" class="md:hidden w-10 h-10 flex items-center justify-center" aria-label="Menu" aria-expanded="false">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" d="M4 7h16"/>
+                        <path stroke-linecap="round" d="M4 17h16"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+        <div id="mobile-nav" class="mobile-nav fixed inset-0 bg-canvas z-40 flex flex-col items-center justify-center md:hidden">
+            <button id="mobile-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="Zavrit menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>
+                </svg>
+            </button>
+            <ul class="flex flex-col items-center gap-8">
+                <li><a href="index.html" class="text-heading-md font-semibold text-ink">O nas</a></li>
+                <li><a href="index.html#blog-feed" class="text-heading-md font-semibold text-ink">Blog</a></li>
+                <li><a href="podporovatele.html" class="text-heading-md font-semibold text-ink">Podporovatelé</a></li>
+                <li><a href="supporters.html" class="text-heading-md font-semibold text-ink">Podporte nas</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <main id="content" role="main">
+
+        <!-- ============================================= -->
+        <!-- ARTICLE                                      -->
+        <!-- ============================================= -->
+        <article id="single-post" class="pt-28 md:pt-36 pb-16 md:pb-24">
+
+            <!-- Article Header — Prose width -->
+            <header class="max-w-prose mx-auto px-6 md:px-8 mb-10 md:mb-14">
+
+                <!-- Category + Date -->
+                <div class="flex items-center gap-3 mb-6 md:mb-8 animate-fade-in animate-delay-1">
+                    <span class="text-micro font-semibold uppercase tracking-[0.15em] text-ink bg-surface px-3 py-1 rounded-pill">
+                        <!-- <?php the_category(', '); ?> -->
+                        Tech
+                    </span>
+                    <time class="text-caption text-stone-custom" datetime="2025-05-28">
+                        <!-- <?php echo get_the_date(); ?> -->
+                        28. kvetna 2025
+                    </time>
+                </div>
+
+                <!-- H1 — Oversized, DM Sans -->
+                <h1 class="text-display md:text-hero font-semibold text-ink-strong leading-[1.08] mb-6 md:mb-8 animate-fade-in animate-delay-2">
+                    <!-- <?php the_title(); ?> -->
+                    FPV system nove generace: Co prinasime v&nbsp;roce 2025
+                </h1>
+
+                <!-- Perex / Subheadline -->
+                <p class="text-subtitle md:text-body-lg text-steel font-body leading-relaxed animate-fade-in animate-delay-3">
+                    <!-- <?php echo get_the_excerpt(); ?> -->
+                    Predstavujeme nas vylepseny system s&nbsp;nizsi latenci a&nbsp;lepsi kvalitou prenosu videa pro jeste autentictejsi zazitek z&nbsp;letani a&nbsp;rizeni.
+                </p>
+            </header>
+
+            <!-- Featured Image — Full bleed within content width -->
+            <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12 mb-12 md:mb-16 animate-fade-in animate-delay-4">
+                <div class="aspect-video bg-surface-soft rounded-xl md:rounded-2xl overflow-hidden" id="featured-image">
+                    <!-- <?php the_post_thumbnail('full', ['class' => 'w-full h-full object-cover']); ?> -->
+                    <div class="w-full h-full flex items-center justify-center">
+                        <svg class="w-16 h-16 text-hairline" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Body — Prose width, the_content() -->
+            <div class="max-w-prose mx-auto px-6 md:px-8">
+                <!-- <?php the_content(); ?> -->
+                <div class="prose-reading">
+
+                    <p>
+                        Kdyz jsme pred dvema lety zacali stavet prvni prototypy naseho FPV systemu, vedeli jsme, ze klicovym parametrem bude latence. Kazda milisekunda zpozdeni mezi kamerou na letounu a&nbsp;VR brylemi na hlave pilota znamena mene autenticky zazitek. Pro lidi s&nbsp;telesnym postizenim, kteri nemohou fyzicky letat, je tato autenticita vsechno.
+                    </p>
+
+                    <p>
+                        Dnes predstavujeme druhou generaci naseho systemu, ktera posuva hranice toho, co je mozne. Snizili jsme end-to-end latenci pod 20&nbsp;milisekund, zvysili rozliseni prenosu na plne HD a&nbsp;pridali stabilizaci obrazu, ktera eliminuje vibrace z&nbsp;motoru letounu.
+                    </p>
+
+                    <h2>Co je vlastne FPV a proc na tom zalezi</h2>
+
+                    <p>
+                        FPV znamena <strong>First Person View</strong>&nbsp;&mdash; pohled ocima prvni osoby. V&nbsp;praxi to znamena, ze pilot nevidi letoun zvenci, ale primo jeho ocima. Kamera na pridu letounu prenasi obraz v&nbsp;realnem case do VR bryli. Pilot otaci hlavou a&nbsp;kamera se otaci s&nbsp;nim. Efekt je tak silny, ze mozek prestane rozlisovat mezi virtualnim a&nbsp;realnym letem.
+                    </p>
+
+                    <p>
+                        Pro nase ucastniky&nbsp;&mdash; lidi upoutane na vozik, s&nbsp;neurodegenerativnimi onemocnenimi nebo po urazu michY&nbsp;&mdash; to znamena moznost zazit neco, co jim bylo doposud odepireno. A&nbsp;delat to opakovane, bezpecne, s&nbsp;plnou kontrolou.
+                    </p>
+
+                    <blockquote>
+                        <p>
+                            &bdquo;Kdyz jsem si poprvé nasadil bryle a letadlo vzletelo, zapomel jsem, ze sedim na voziku. Na tri minuty jsem byl uplne volny.&ldquo;
+                        </p>
+                    </blockquote>
+
+                    <h2>Technicke zmeny v druhe generaci</h2>
+
+                    <p>
+                        Druha generace prinasi tri zasadni zlepseni:
+                    </p>
+
+                    <ul>
+                        <li><strong>Latence pod 20&nbsp;ms</strong> &mdash; O&nbsp;40&nbsp;% nizsi nez u&nbsp;prvni generace. Dosahli jsme toho prechodem na digitalni prenos s&nbsp;vlastnim kodekom optimalizovanym pro nizke zpozdeni.</li>
+                        <li><strong>Full HD rozliseni</strong> &mdash; 1920&times;1080 pri 60 snimcich za sekundu. Predchozi generace pracovala v&nbsp;720p. Rozdil je okamzite viditelny&nbsp;&mdash; piloti rozeznavaji detaily terenu, stromy, budovy.</li>
+                        <li><strong>Gyroskopicka stabilizace</strong> &mdash; Trichtelovy motor letounu vytvari vibrace, ktere v&nbsp;brylach zpusobuji neprijemny tras obrazu. Novy system pouziva softwarovou stabilizaci s&nbsp;hardwarovym gyroskopem, ktery vibrace eliminuje.</li>
+                    </ul>
+
+                    <h2>Co to znamena pro nase ucastniky</h2>
+
+                    <p>
+                        Vyssi kvalita prenosu primo ovlivnuje kvalitu zazitku. S&nbsp;nizsi latenci se ucastnici citi vice &bdquo;pritomni&ldquo; v&nbsp;kokpitu. Lepsi rozliseni jim umoznuje vnimat krajinu s&nbsp;detaily, ktere predtim chybely. A&nbsp;stabilizace znamena, ze i&nbsp;lide citlivi na pohybovou nevolnost mohou letat dele a&nbsp;s&nbsp;vetsim komfortem.
+                    </p>
+
+                    <p>
+                        Testovali jsme novy system s&nbsp;dvanacti ucastniky v&nbsp;nasem stredisku ve Vysokem Myte. Prumerna delka letu se zvysila z&nbsp;8 na 14 minut. Vsichni ucastnici oznacili zazitek jako &bdquo;vyrazne lepsi&ldquo; nez s&nbsp;predchozi generaci.
+                    </p>
+
+                    <p>
+                        V&nbsp;nadchazejicich mesicich planujem nasadit druhou generaci na vsechny nase akce. Zaroven pracujeme na rozsireni o&nbsp;rezim pro RC auta, ktery vyuzije stejnou technologii prenosu, ale s&nbsp;jinou optikou kamery optimalizovanou pro pohled z&nbsp;nizkeho uhlu.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="max-w-prose mx-auto px-6 md:px-8 mt-14 md:mt-20">
+                <hr class="border-hairline">
+            </div>
+
+            <!-- Back Link -->
+            <nav class="max-w-prose mx-auto px-6 md:px-8 mt-8 md:mt-10" aria-label="Zpet na blog">
+                <a href="index.html#blog-feed" id="back-to-blog" class="inline-flex items-center gap-2.5 text-body-sm font-semibold text-steel hover:text-ink transition-colors group">
+                    <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                    </svg>
+                    Vsechny clanky
+                </a>
+            </nav>
+
+        </article>
+
+    </main>
+
+
+    <!-- ============================================= -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================= -->
+    <footer id="site-footer" class="bg-ink text-canvas" role="contentinfo">
+        <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
+
+            <!-- Newsletter -->
+            <div class="py-12 md:py-16 border-b border-charcoal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-heading-sm font-semibold text-canvas mb-2">Odber novinek</h3>
+                        <p class="text-body-sm text-muted font-body">
+                            Zadny spam. Jen dulezite novinky o&nbsp;projektu Eiva.
+                        </p>
+                    </div>
+                    <form id="newsletter-form" class="flex gap-3" action="#" method="post">
+                        <label for="newsletter-email" class="sr-only">E-mailova adresa</label>
+                        <input 
+                            type="email" 
+                            id="newsletter-email" 
+                            name="email" 
+                            placeholder="vas@email.cz" 
+                            required
+                            class="newsletter-input flex-1 px-5 py-3 bg-charcoal border border-charcoal text-canvas text-body-sm rounded-pill placeholder:text-steel focus:border-canvas transition-colors"
+                        >
+                        <button 
+                            type="submit" 
+                            id="newsletter-submit"
+                            class="px-6 py-3 bg-canvas text-ink text-body-sm font-semibold rounded-pill hover:bg-surface transition-colors whitespace-nowrap"
+                        >
+                            Odebirat
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Grid -->
+            <div class="py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.html" class="text-xl font-semibold text-canvas block mb-4">Eiva</a>
+                    <p class="text-body-sm text-muted font-body leading-relaxed mb-6">
+                        Hlavou v&nbsp;oblacich,<br>nohama na&nbsp;zemi.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" aria-label="Facebook" class="text-muted hover:text-canvas transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="text-muted hover:text-canvas transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="text-muted hover:text-canvas transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-body-sm font-semibold text-canvas mb-4">Navigace</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="index.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">O nas</a></li>
+                        <li><a href="index.html#blog-feed" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Blog</a></li>
+                        <li><a href="supporters.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Podporte nas</a></li>
+                        <li><a href="/kontakt" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-body-sm font-semibold text-canvas mb-4">Kategorie</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Tech</a></li>
+                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Pribehy</a></li>
+                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Akce</a></li>
+                        <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Partneri</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-body-sm font-semibold text-canvas mb-4">Kontakt</p>
+                    <ul class="space-y-2.5">
+                        <li class="text-body-sm text-muted font-body">Vysoke Myto</li>
+                        <li class="text-body-sm text-muted font-body">Ceska republika</li>
+                        <li><a href="mailto:info@eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">info@eiva.cz</a></li>
+                        <li><a href="https://eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">eiva.cz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="py-6 border-t border-charcoal flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <p class="text-micro text-steel font-body">&copy; 2025 Eiva. Vsechna prava vyhrazena.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-micro text-steel hover:text-muted transition-colors font-body">Ochrana soukromi</a>
+                    <a href="#" class="text-micro text-steel hover:text-muted transition-colors font-body">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================= -->
+    <!-- JavaScript                                   -->
+    <!-- ============================================= -->
+    <script>
+        const header = document.getElementById('site-header');
+        function handleScroll() {
+            if (window.scrollY > 40) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        }
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileClose = document.getElementById('mobile-close');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        });
+        mobileClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+
+</body>
+</html>
