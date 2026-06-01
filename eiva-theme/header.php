@@ -63,37 +63,37 @@
                 </button>
             </nav>
         </div>
-
-        <!-- Mobile Navigation Overlay -->
-        <div id="mobile-nav" class="mobile-nav fixed inset-0 bg-canvas z-40 flex flex-col items-center justify-center md:hidden">
-            <button id="mobile-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="<?php esc_attr_e( 'Zavřít menu', 'eiva-minimax' ); ?>">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>
-                </svg>
-            </button>
-            
-            <?php
-            if ( has_nav_menu( 'primary-menu' ) ) {
-                wp_nav_menu( array(
-                    'theme_location' => 'primary-menu',
-                    'container'      => false,
-                    'menu_class'     => 'flex flex-col items-center gap-8',
-                    'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
-                    'fallback_cb'    => false,
-                ) );
-            } else {
-                ?>
-                <ul class="flex flex-col items-center gap-8">
-                    <li><a href="<?php echo esc_url( home_url( '/o-nas/' ) ); ?>" class="text-heading-md font-semibold text-ink">O nás</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="text-heading-md font-semibold text-ink">Blog</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/podporovatele/' ) ); ?>" class="text-heading-md font-semibold text-ink">Podporovatelé</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/kontakt/' ) ); ?>" class="text-heading-md font-semibold text-ink">Kontaktujte nás</a></li>
-                </ul>
-                <?php
-            }
-            ?>
-        </div>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-nav" class="mobile-nav fixed inset-0 bg-canvas z-[60] flex flex-col items-center justify-center md:hidden">
+        <button id="mobile-close" class="absolute top-5 right-6 w-10 h-10 flex items-center justify-center" aria-label="<?php esc_attr_e( 'Zavřít menu', 'eiva-minimax' ); ?>">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>
+            </svg>
+        </button>
+        
+        <?php
+        if ( has_nav_menu( 'primary-menu' ) ) {
+            wp_nav_menu( array(
+                'theme_location' => 'primary-menu',
+                'container'      => false,
+                'menu_class'     => 'flex flex-col items-center gap-8',
+                'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
+                'fallback_cb'    => false,
+            ) );
+        } else {
+            ?>
+            <ul class="flex flex-col items-center gap-8">
+                <li><a href="<?php echo esc_url( home_url( '/o-nas/' ) ); ?>" class="text-heading-md font-semibold text-ink">O nás</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="text-heading-md font-semibold text-ink">Blog</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/podporovatele/' ) ); ?>" class="text-heading-md font-semibold text-ink">Podporovatelé</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/kontakt/' ) ); ?>" class="text-heading-md font-semibold text-ink">Kontaktujte nás</a></li>
+            </ul>
+            <?php
+        }
+        ?>
+    </div>
 
     <!-- Pass transparent state to Javascript -->
     <script>
