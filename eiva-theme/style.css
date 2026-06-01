@@ -1,0 +1,176 @@
+/*
+Theme Name: Eiva Minimax Theme
+Theme URI: https://eiva.cz/
+Author: VoltAgent WordPress Developer
+Author URI: https://eiva.cz/
+Description: A strictly minimalist, stark, lightweight WordPress theme built for the Eiva project using the Minimax design system and Tailwind CSS.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: eiva-minimax
+*/
+
+/* Core theme styling overrides or custom custom CSS goes here if needed.
+All layout logic and styling are handled beautifully by Tailwind CSS and standard custom overrides. */
+
+::selection {
+    background: #0a0a0a;
+    color: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mobile-nav {
+    transform: translateY(-100%);
+    transition: transform 300ms ease;
+}
+.mobile-nav.active {
+    transform: translateY(0);
+}
+
+.header-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+.animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* Dynamic scroll video transitions overlay */
+.hero-video-overlay {
+    background-color: rgba(10, 10, 10, 0.60);
+}
+
+/* ==============================================
+   ARTICLE PROSE — the_content() formatting
+   ============================================== */
+.prose-reading {
+    font-family: 'Inter', 'DM Sans', sans-serif;
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    line-height: 1.85;
+    color: #222222;
+    letter-spacing: 0.005em;
+}
+
+.prose-reading p {
+    margin-bottom: 1.75em;
+}
+
+.prose-reading h2 {
+    font-family: 'DM Sans', 'Inter', sans-serif;
+    font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: #0a0a0a;
+    margin-top: 2.5em;
+    margin-bottom: 0.75em;
+}
+
+.prose-reading h3 {
+    font-family: 'DM Sans', 'Inter', sans-serif;
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    font-weight: 600;
+    line-height: 1.30;
+    color: #0a0a0a;
+    margin-top: 2em;
+    margin-bottom: 0.625em;
+}
+
+.prose-reading blockquote {
+    margin: 2.5em 0;
+    padding: 0 0 0 1.5em;
+    border-left: 2px solid #0a0a0a;
+    font-style: normal;
+    color: #0a0a0a;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
+.prose-reading blockquote p {
+    margin-bottom: 0;
+}
+
+.prose-reading a {
+    color: #0a0a0a;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: opacity 150ms ease;
+}
+.prose-reading a:hover {
+    opacity: 0.6;
+}
+
+.prose-reading ul,
+.prose-reading ol {
+    margin: 1.5em 0;
+    padding-left: 1.25em;
+}
+
+.prose-reading li {
+    margin-bottom: 0.5em;
+}
+
+.prose-reading strong {
+    font-weight: 600;
+    color: #0a0a0a;
+}
+
+.prose-reading img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 2em 0;
+}
+
+.prose-reading figure {
+    margin: 2.5em 0;
+}
+
+.prose-reading figcaption {
+    font-size: 0.8125rem;
+    color: #8e8e93;
+    margin-top: 0.75em;
+    line-height: 1.5;
+}
+
+/* Minimal Contact Form Input styling */
+.form-input {
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    background: transparent;
+    padding: 0.75rem 0;
+    width: 100%;
+    transition: border-color 200ms ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #0a0a0a;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #000000;
+    border-bottom-width: 2px;
+}
+
+/* Grayscale Map custom container styling */
+.map-placeholder {
+    background-color: #f7f8fa;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0,0,0,0.02) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(0,0,0,0.02) 0%, transparent 40%);
+}
+
