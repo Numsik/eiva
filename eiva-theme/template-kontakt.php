@@ -114,9 +114,8 @@ get_header();
                                 <div class="mt-12 font-body">
                                     <span class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-3">Sledujte nás</span>
                                     <div class="flex gap-6">
-                                        <a href="https://facebook.com" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">Facebook</a>
-                                        <a href="https://instagram.com" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">Instagram</a>
-                                        <a href="https://youtube.com" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">YouTube</a>
+                                        <a href="https://www.instagram.com/project_eiva/" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">Instagram</a>
+                                        <a href="https://www.youtube.com/@project_eiva" target="_blank" rel="noopener" class="text-body-sm text-steel hover:text-ink hover:underline underline-offset-4 decoration-1 transition-colors">YouTube</a>
                                     </div>
                                 </div>
 

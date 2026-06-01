@@ -75,12 +75,9 @@ get_header();
 
                                 <!-- Partner Card: Evropská unie -->
                                 <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                                    <!-- Logo Placeholder Slot -->
+                                    <!-- Logo Slot -->
                                     <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Evropská unie">
-                                        <div class="logo-placeholder">
-                                            <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mb-1.5">Spolufinancováno</span>
-                                            <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">Evropská unie</span>
-                                        </div>
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-eu.png" alt="Evropská unie" class="h-12 w-auto object-contain">
                                     </div>
                                     <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Evropská unie</h3>
                                     <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -90,12 +87,9 @@ get_header();
 
                                 <!-- Partner Card: Technická Vysoké Mýto -->
                                 <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                                    <!-- Logo Placeholder Slot -->
+                                    <!-- Logo Slot -->
                                     <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Technická Vysoké Mýto">
-                                        <div class="logo-placeholder">
-                                            <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">TECHNICKÁ</span>
-                                            <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">Vysoké Mýto</span>
-                                        </div>
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-technicka.png" alt="Technická Vysoké Mýto" class="h-12 w-auto object-contain">
                                     </div>
                                     <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Technická Vysoké Mýto</h3>
                                     <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -105,12 +99,9 @@ get_header();
 
                                 <!-- Partner Card: Synergy Network -->
                                 <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                                    <!-- Logo Placeholder Slot -->
+                                    <!-- Logo Slot -->
                                     <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Synergy Network">
-                                        <div class="logo-placeholder">
-                                            <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">SYNERGY</span>
-                                            <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">Network</span>
-                                        </div>
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-synergy.png" alt="Synergy Network" class="h-12 w-auto object-contain">
                                     </div>
                                     <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Synergy Network</h3>
                                     <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -120,12 +111,9 @@ get_header();
 
                                 <!-- Partner Card: Pardubický kraj -->
                                 <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                                    <!-- Logo Placeholder Slot -->
+                                    <!-- Logo Slot -->
                                     <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Pardubický kraj">
-                                        <div class="logo-placeholder">
-                                            <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">Pardubický</span>
-                                            <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">Kraj</span>
-                                        </div>
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-pardubicky-kraj.png" alt="Pardubický kraj" class="h-12 w-auto object-contain">
                                     </div>
                                     <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Pardubický kraj</h3>
                                     <p class="text-body-sm text-steel font-body leading-relaxed">
@@ -135,16 +123,25 @@ get_header();
 
                                 <!-- Partner Card: Filament PM -->
                                 <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
-                                    <!-- Logo Placeholder Slot -->
+                                    <!-- Logo Slot -->
                                     <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Filament PM">
-                                        <div class="logo-placeholder">
-                                            <span class="block text-heading-md font-semibold text-ink-strong leading-none tracking-tight">FILAMENT</span>
-                                            <span class="block text-body-sm font-medium text-stone-custom uppercase tracking-[0.15em] mt-1.5">PM</span>
-                                        </div>
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-filament-pm.png" alt="Filament PM" class="h-10 w-auto object-contain">
                                     </div>
                                     <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Filament PM</h3>
                                     <p class="text-body-sm text-steel font-body leading-relaxed">
-                                        Kvalitní 3D tisk je pro vývoj našeho rozhraní nezbytný. Jsme hrdí, že za námi stojí právě Filamenty PM – tradiční český výrobce, jehož materiály nám pomají stavět odolný a funkční hardware pro našeho testera Davídka. Společně tiskneme budoucnost bez bariér.
+                                        Kvalitní 3D tisk je pro vývoj našeho rozhraní nezbytný. Jsme hrdí, že za námi stojí právě Filamenty PM – tradiční český výrobce, jehož materiály nám pomáhají stavět odolný a funkční hardware pro našeho testera Davídka. Společně tiskneme budoucnost bez bariér.
+                                    </p>
+                                </div>
+
+                                <!-- Partner Card: Aero Vodochody -->
+                                <div class="bg-canvas flex flex-col p-8 md:p-10 border border-hairline rounded-2xl group transition-all duration-300 hover:border-ink hover:translate-y-[-2px]">
+                                    <!-- Logo Slot -->
+                                    <div class="logo-tile flex items-center justify-start aspect-[4/1] mb-6 md:mb-8" aria-label="Aero Vodochody">
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-aero.png" alt="Aero Vodochody" class="h-12 w-auto object-contain">
+                                    </div>
+                                    <h3 class="text-heading-sm font-semibold text-ink-strong mb-4">Aero Vodochody</h3>
+                                    <p class="text-body-sm text-steel font-body leading-relaxed">
+                                        Máme velkou radost, že náš nápad zaujal právě Aero Vodochody. Jejich oficiální záštita je pro nás obrovským povzbuzením do další práce. Moc děkujeme za poskytnutí modelu Skyfox, který nám teď pomáhá při testování v terénu a posouvá naše létání zase o kus dál.
                                     </p>
                                 </div>
 

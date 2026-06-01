@@ -39,6 +39,21 @@ html {
     border-bottom: 1px solid #e5e7eb;
 }
 
+/* Header dark mode (when transparent over dark hero video) */
+#site-header.header-dark #site-logo img {
+    filter: invert(1) hue-rotate(180deg);
+}
+#site-header.header-dark #desktop-nav a {
+    color: rgba(255, 255, 255, 0.85);
+}
+#site-header.header-dark #desktop-nav a:hover {
+    color: #ffffff;
+}
+#site-header.header-dark #mobile-toggle {
+    color: #ffffff;
+}
+
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -173,4 +188,49 @@ html {
         radial-gradient(circle at 10% 20%, rgba(0,0,0,0.02) 0%, transparent 40%),
         radial-gradient(circle at 80% 70%, rgba(0,0,0,0.02) 0%, transparent 40%);
 }
+
+/* ==============================================
+   WORDPRESS ADMIN BAR COMPATIBILITY
+   ============================================== */
+.admin-bar #site-header {
+    top: 32px;
+}
+.admin-bar .mobile-nav {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar #site-header {
+        top: 46px;
+    }
+    .admin-bar .mobile-nav {
+        top: 46px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #wpadminbar {
+        position: fixed !important;
+    }
+}
+
+/* ==============================================
+   LOGO GRID — Subtle opacity → Full opacity hover
+   ============================================== */
+.logo-tile {
+    transition: opacity 300ms ease, transform 200ms ease;
+    opacity: 0.90;
+}
+
+.logo-tile:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* Actual logo images — visible in full color all the time */
+.logo-tile img {
+    transition: transform 200ms ease;
+}
+
+
 
