@@ -64,7 +64,23 @@ get_header();
         <!-- ============================================= -->
         <!-- 3. FEATURED BLOG POST — Dynamic Highlight     -->
         <!-- ============================================= -->
-        <section id="featured-post" class="py-16 md:py-24 lg:py-32" aria-label="Hlavní článek">
+        <?php
+        // Fetch the absolute latest post for the Featured slot
+        $featured_query = new WP_Query( array(
+            'posts_per_page'      => 1,
+            'ignore_sticky_posts' => 1,
+        ) );
+        $featured_cat_slug = 'akce'; // default fallback
+        if ( $featured_query->have_posts() ) {
+            $featured_query->the_post();
+            $featured_categories = get_the_category();
+            if ( ! empty( $featured_categories ) ) {
+                $featured_cat_slug = sanitize_title( $featured_categories[0]->name );
+            }
+            $featured_query->rewind_posts(); // rewind so the while loop works normally
+        }
+        ?>
+        <section id="featured-post" class="py-16 md:py-24 lg:py-32" aria-label="Hlavní článek" data-category="<?php echo esc_attr( $featured_cat_slug ); ?>">
             <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
                 
                 <!-- Section Label -->
@@ -73,12 +89,6 @@ get_header();
                 </p>
 
                 <?php
-                // Fetch the absolute latest post for the Featured slot
-                $featured_query = new WP_Query( array(
-                    'posts_per_page'      => 1,
-                    'ignore_sticky_posts' => 1,
-                ) );
-
                 if ( $featured_query->have_posts() ) :
                     while ( $featured_query->have_posts() ) : $featured_query->the_post();
                         ?>
@@ -196,16 +206,16 @@ get_header();
 
                     <!-- Category Filters -->
                     <div class="flex flex-wrap gap-2" id="category-filters" role="tablist">
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill bg-ink text-canvas" role="tab" aria-selected="true">
+                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill bg-ink text-canvas" role="tab" aria-selected="true" data-category="all">
                             Vše
                         </button>
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false" data-category="tech">
                             Tech
                         </button>
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false" data-category="pribehy">
                             Příběhy
                         </button>
-                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                        <button class="cat-pill px-4 py-1.5 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false" data-category="akce">
                             Akce
                         </button>
                     </div>
@@ -225,7 +235,11 @@ get_header();
                         $post_counter = 1;
                         while ( $grid_query->have_posts() ) : $grid_query->the_post();
                             ?>
-                            <article class="blog-card group">
+                            <?php
+                            $categories = get_the_category();
+                            $cat_slug = ! empty( $categories ) ? sanitize_title( $categories[0]->name ) : 'tech';
+                            ?>
+                            <article class="blog-card group" data-category="<?php echo esc_attr( $cat_slug ); ?>">
                                 <a href="<?php the_permalink(); ?>" class="block" id="post-<?php echo esc_attr( $post_counter ); ?>">
                                     <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                         <?php if ( has_post_thumbnail() ) : ?>
@@ -265,7 +279,7 @@ get_header();
                     else :
                         // Fallback static mock blog feed cards matching the custom layout
                         ?>
-                        <article class="blog-card group">
+                        <article class="blog-card group" data-category="tech">
                             <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="block" id="post-1">
                                 <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                     <div class="w-full h-full flex items-center justify-center text-muted">
@@ -281,7 +295,7 @@ get_header();
                                 <p class="text-body-sm text-steel font-body leading-relaxed">Představujeme náš vylepšený systém s nižší latencí a lepší kvalitou přenosu videa pro ještě autentičtější zážitek.</p>
                             </a>
                         </article>
-                        <article class="blog-card group">
+                        <article class="blog-card group" data-category="pribehy">
                             <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="block" id="post-2">
                                 <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                     <div class="w-full h-full flex items-center justify-center text-muted">
@@ -297,7 +311,7 @@ get_header();
                                 <p class="text-body-sm text-steel font-body leading-relaxed">Honza přišel o mobilitu po nehodě. Díky naší technologii poprvé zažil pocit letu. Jeho příběh inspiroval celý tým.</p>
                             </a>
                         </article>
-                        <article class="blog-card group">
+                        <article class="blog-card group" data-category="akce">
                             <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="block" id="post-3">
                                 <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                     <div class="w-full h-full flex items-center justify-center text-muted">

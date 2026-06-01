@@ -31,22 +31,21 @@ get_header();
 
                 <!-- Category Filters Row -->
                 <div class="flex flex-wrap gap-2 animate-fade-in animate-delay-3" id="category-filters" role="tablist">
-                    <a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ? get_post_type_archive_link( 'post' ) : home_url( '/blog/' ) ); ?>" class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill <?php echo !is_category() ? 'bg-ink text-canvas' : 'border border-hairline text-steel bg-canvas'; ?>" role="tab">
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill bg-ink text-canvas" role="tab" aria-selected="true" data-category="all">
                         Vše
-                    </a>
+                    </button>
                     <?php
                     $categories = get_categories();
                     foreach ( $categories as $category ) {
-                        $is_active = is_category( $category->term_id );
-                        $pill_classes = 'cat-pill px-5 py-2 text-caption font-semibold rounded-pill ' . ( $is_active ? 'bg-ink text-canvas' : 'border border-hairline text-steel bg-canvas' );
-                        echo '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="' . esc_attr( $pill_classes ) . '" role="tab">' . esc_html( $category->name ) . '</a>';
+                        $slug = sanitize_title( $category->name );
+                        echo '<button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" data-category="' . esc_attr( $slug ) . '">' . esc_html( $category->name ) . '</button>';
                     }
                     if ( empty( $categories ) ) {
                         ?>
-                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab">Tech</button>
-                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab">Příběhy</button>
-                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab">Akce</button>
-                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab">Partneři</button>
+                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" data-category="tech">Tech</button>
+                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" data-category="pribehy">Příběhy</button>
+                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" data-category="akce">Akce</button>
+                        <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" data-category="partneri">Partneři</button>
                         <?php
                     }
                     ?>
@@ -69,11 +68,13 @@ get_header();
             while ( have_posts() ) : the_post();
                 if ( $post_index === 0 && ! is_paged() ) {
                     // FEATURED POST (Full Width, absolute latest)
+                    $featured_categories = get_the_category();
+                    $featured_cat_slug = ! empty( $featured_categories ) ? sanitize_title( $featured_categories[0]->name ) : 'akce';
                     ?>
                     <!-- ============================================= -->
                     <!-- 3. FEATURED POST — Spanning Full Width        -->
                     <!-- ============================================= -->
-                    <section id="featured-post" class="py-16 md:py-24" aria-label="Hlavní článek">
+                    <section id="featured-post" class="py-16 md:py-24" aria-label="Hlavní článek" data-category="<?php echo esc_attr( $featured_cat_slug ); ?>">
                         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
                             
                             <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -164,8 +165,10 @@ get_header();
                         $posts_to_show = is_paged() ? $wp_query->posts : $grid_posts;
                         
                         foreach ( $posts_to_show as $post ) : setup_postdata( $post );
+                            $categories = get_the_category();
+                            $cat_slug = ! empty( $categories ) ? sanitize_title( $categories[0]->name ) : 'tech';
                             ?>
-                            <article class="blog-card group">
+                            <article class="blog-card group" data-category="<?php echo esc_attr( $cat_slug ); ?>">
                                 <a href="<?php the_permalink(); ?>" class="block">
                                     <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                         <?php if ( has_post_thumbnail() ) : ?>
@@ -221,7 +224,7 @@ get_header();
         else :
             // Dynamic fallback static layout if no posts are present in database yet
             ?>
-            <section id="featured-post" class="py-16 md:py-24" aria-label="Hlavní článek">
+            <section id="featured-post" class="py-16 md:py-24" aria-label="Hlavní článek" data-category="akce">
                 <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
                     <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                         <a href="#" id="featured-thumb" class="block lg:col-span-7 aspect-[16/10] bg-surface-soft rounded-2xl overflow-hidden featured-img-placeholder">
@@ -247,7 +250,7 @@ get_header();
             <section id="blog-grid" class="py-16 md:py-24" aria-label="Ostatní články">
                 <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16" id="posts-grid">
-                        <article class="blog-card group">
+                        <article class="blog-card group" data-category="tech">
                             <a href="#" class="block">
                                 <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                     <div class="w-full h-full flex items-center justify-center text-muted">
@@ -263,7 +266,7 @@ get_header();
                                 <p class="text-body-sm text-steel font-body leading-relaxed">Představujeme náš vylepšený systém s nižší latencí a lepší kvalitou přenosu videa pro ještě autentičtější zážitek.</p>
                             </a>
                         </article>
-                        <article class="blog-card group">
+                        <article class="blog-card group" data-category="pribehy">
                             <a href="#" class="block">
                                 <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                     <div class="w-full h-full flex items-center justify-center text-muted">
@@ -279,7 +282,7 @@ get_header();
                                 <p class="text-body-sm text-steel font-body leading-relaxed">Honza přišel o mobilitu po nehodě. Díky naší technologii poprvé zažil pocit letu. Jeho příběh inspiroval celý tým.</p>
                             </a>
                         </article>
-                        <article class="blog-card group">
+                        <article class="blog-card group" data-category="akce">
                             <a href="#" class="block">
                                 <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                     <div class="w-full h-full flex items-center justify-center text-muted">

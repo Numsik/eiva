@@ -246,19 +246,19 @@
 
                 <!-- Category Filters Row -->
                 <div class="flex flex-wrap gap-2 animate-fade-in animate-delay-3" id="category-filters" role="tablist">
-                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill bg-ink text-canvas" role="tab" aria-selected="true">
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill bg-ink text-canvas" role="tab" aria-selected="true" data-category="all">
                         Vše
                     </button>
-                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false" data-category="tech">
                         Tech
                     </button>
-                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false" data-category="pribehy">
                         Příběhy
                     </button>
-                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false" data-category="akce">
                         Akce
                     </button>
-                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false">
+                    <button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" aria-selected="false" data-category="partneri">
                         Partneři
                     </button>
                 </div>
@@ -274,7 +274,7 @@
         <!-- ============================================= -->
         <!-- 3. FEATURED POST — Spanning Full Width -->
         <!-- ============================================= -->
-        <section id="featured-post" class="py-16 md:py-24" aria-label="Hlavní článek">
+        <section id="featured-post" class="py-16 md:py-24" aria-label="Hlavní článek" data-category="akce">
             <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
                 
                 <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -342,7 +342,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16" id="posts-grid">
 
                     <!-- Post 1: FPV System -->
-                    <article class="blog-card group">
+                    <article class="blog-card group" data-category="tech">
                         <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
@@ -364,7 +364,7 @@
                     </article>
 
                     <!-- Post 2: Honza's Story -->
-                    <article class="blog-card group">
+                    <article class="blog-card group" data-category="pribehy">
                         <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
@@ -386,7 +386,7 @@
                     </article>
 
                     <!-- Post 3: Open Doors VM -->
-                    <article class="blog-card group">
+                    <article class="blog-card group" data-category="akce">
                         <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
@@ -408,7 +408,7 @@
                     </article>
 
                     <!-- Post 4: RC gliders FPV -->
-                    <article class="blog-card group">
+                    <article class="blog-card group" data-category="tech">
                         <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
@@ -430,7 +430,7 @@
                     </article>
 
                     <!-- Post 5: Rehab Collaboration -->
-                    <article class="blog-card group">
+                    <article class="blog-card group" data-category="pribehy">
                         <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
@@ -452,7 +452,7 @@
                     </article>
 
                     <!-- Post 6: FPV accessibility future -->
-                    <article class="blog-card group">
+                    <article class="blog-card group" data-category="tech">
                         <a href="post.html" class="block">
                             <div class="aspect-[3/2] bg-surface-soft rounded-xl overflow-hidden mb-5 thumb-pattern">
                                 <div class="w-full h-full flex items-center justify-center text-muted">
@@ -495,10 +495,10 @@
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
 
             <!-- Footer Grid -->
-            <div class="py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div class="py-12 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 
                 <!-- Column 1: Brand -->
-                <div class="col-span-2 md:col-span-1">
+                <div>
                     <a href="index.html" class="block mb-4">
                         <img src="https://eiva.cz/wp-content/uploads/2026/01/EIVA-CERNA-LOGO.svg" alt="Eiva" class="h-5 w-auto" style="filter: invert(1) brightness(2);">
                     </a>
@@ -526,23 +526,12 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Blog Categories -->
-                <div>
-                    <p class="text-body-sm font-semibold text-canvas mb-4">Kategorie</p>
-                    <ul class="space-y-2.5">
-                        <li><a href="/kategorie/tech" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Tech</a></li>
-                        <li><a href="/kategorie/pribehy" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Příběhy</a></li>
-                        <li><a href="/kategorie/akce" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Akce</a></li>
-                        <li><a href="/kategorie/partneri" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Partneři</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Contact -->
+                <!-- Column 3: Contact -->
                 <div>
                     <p class="text-body-sm font-semibold text-canvas mb-4">Kontakt</p>
                     <ul class="space-y-2.5">
-                        <li class="text-body-sm text-muted font-body">Vysoké Mýto</li>
-                        <li class="text-body-sm text-muted font-body">Česká republika</li>
+                        <li class="text-body-sm text-muted font-body">Mládežnická 380</li>
+                        <li class="text-body-sm text-muted font-body">566 01 Vysoké Mýto</li>
                         <li><a href="mailto:info@eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">info@eiva.cz</a></li>
                         <li><a href="https://eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">eiva.cz</a></li>
                     </ul>
@@ -552,12 +541,8 @@
             <!-- Footer Bottom -->
             <div class="py-6 border-t border-charcoal flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <p class="text-micro text-steel font-body">
-                    &copy; 2025 Eiva. Všechna práva vyhrazena.
+                    Copyright &copy; 2026 Eiva | Created By <a href="https://www.jkw-media.com" target="_blank" rel="noopener noreferrer" class="hover:text-muted transition-colors">www.jkw-media.com</a>
                 </p>
-                <div class="flex gap-6">
-                    <a href="/ochrana-soukromi" class="text-micro text-steel hover:text-muted transition-colors font-body">Ochrana soukromí</a>
-                    <a href="/cookies" class="text-micro text-steel hover:text-muted transition-colors font-body">Cookies</a>
-                </div>
             </div>
         </div>
     </footer>
@@ -608,10 +593,17 @@
             });
         });
 
-        // Category filter interaction (visual toggling)
+        // Category filter interaction with actual filtering
         const catPills = document.querySelectorAll('.cat-pill');
+        const blogCards = document.querySelectorAll('.blog-card');
+        const featuredSection = document.getElementById('featured-post');
+        const loadMoreBtn = document.getElementById('load-more-posts');
+
         catPills.forEach(pill => {
             pill.addEventListener('click', () => {
+                const selectedCat = pill.getAttribute('data-category');
+
+                // 1. Update visual active state of buttons
                 catPills.forEach(p => {
                     p.classList.remove('bg-ink', 'text-canvas');
                     p.classList.add('border', 'border-hairline', 'text-steel', 'bg-canvas');
@@ -620,6 +612,57 @@
                 pill.classList.remove('border', 'border-hairline', 'text-steel', 'bg-canvas');
                 pill.classList.add('bg-ink', 'text-canvas');
                 pill.setAttribute('aria-selected', 'true');
+
+                // 2. Filter grid cards with smooth transition
+                blogCards.forEach(card => {
+                    card.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+                    const cardCat = card.getAttribute('data-category');
+
+                    if (selectedCat === 'all' || cardCat === selectedCat) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 20);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(12px)';
+                        setTimeout(() => {
+                            if (card.style.opacity === '0') {
+                                card.style.display = 'none';
+                            }
+                        }, 250);
+                    }
+                });
+
+                // 3. Filter featured post on the top (since its category is "Akce")
+                if (featuredSection) {
+                    const featuredCat = featuredSection.getAttribute('data-category');
+                    featuredSection.style.transition = 'opacity 0.25s ease';
+                    
+                    if (selectedCat === 'all' || featuredCat === selectedCat) {
+                        featuredSection.style.display = '';
+                        setTimeout(() => {
+                            featuredSection.style.opacity = '1';
+                        }, 20);
+                    } else {
+                        featuredSection.style.opacity = '0';
+                        setTimeout(() => {
+                            if (featuredSection.style.opacity === '0') {
+                                featuredSection.style.display = 'none';
+                            }
+                        }, 250);
+                    }
+                }
+
+                // 4. Hide "Load More" button when filtering (statical client-side restriction)
+                if (loadMoreBtn) {
+                    if (selectedCat === 'all') {
+                        loadMoreBtn.parentElement.style.display = 'flex';
+                    } else {
+                        loadMoreBtn.parentElement.style.display = 'none';
+                    }
+                }
             });
         });
 

@@ -5,10 +5,10 @@
         <div class="max-w-content mx-auto px-6 md:px-8 lg:px-12">
 
             <!-- Footer Grid -->
-            <div class="py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div class="py-12 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 
                 <!-- Column 1: Brand -->
-                <div class="col-span-2 md:col-span-1">
+                <div>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="block mb-4">
                         <img src="https://eiva.cz/wp-content/uploads/2026/01/EIVA-CERNA-LOGO.svg" alt="<?php bloginfo( 'name' ); ?>" class="h-5 w-auto" style="filter: invert(1) brightness(2);">
                     </a>
@@ -41,47 +41,21 @@
                     } else {
                         ?>
                         <ul class="space-y-2.5">
-                            <li><a href="<?php echo esc_url( home_url( '/o-nas/' ) ); ?>" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">O nás</a></li>
-                            <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Blog</a></li>
-                            <li><a href="<?php echo esc_url( home_url( '/kontakt/' ) ); ?>" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Kontaktujte nás</a></li>
+                            <li><a href="o-nas.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">O nás</a></li>
+                            <li><a href="blog.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Blog</a></li>
+                            <li><a href="kontakt.html" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Kontaktujte nás</a></li>
                         </ul>
                         <?php
                     }
                     ?>
                 </div>
 
-                <!-- Column 3: Categories -->
-                <div>
-                    <p class="text-body-sm font-semibold text-canvas mb-4">Kategorie</p>
-                    <ul class="space-y-2.5">
-                        <?php
-                        $categories = get_categories( array(
-                            'orderby' => 'name',
-                            'order'   => 'ASC',
-                            'number'  => 4,
-                        ) );
-                        if ( ! empty( $categories ) ) {
-                            foreach ( $categories as $category ) {
-                                echo '<li><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">' . esc_html( $category->name ) . '</a></li>';
-                            }
-                        } else {
-                            ?>
-                            <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Tech</a></li>
-                            <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Příběhy</a></li>
-                            <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Akce</a></li>
-                            <li><a href="#" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">Partneři</a></li>
-                            <?php
-                        }
-                        ?>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Contact -->
+                <!-- Column 3: Contact -->
                 <div>
                     <p class="text-body-sm font-semibold text-canvas mb-4">Kontakt</p>
                     <ul class="space-y-2.5">
-                        <li class="text-body-sm text-muted font-body">Vysoké Mýto</li>
-                        <li class="text-body-sm text-muted font-body">Česká republika</li>
+                        <li class="text-body-sm text-muted font-body">Mládežnická 380</li>
+                        <li class="text-body-sm text-muted font-body">566 01 Vysoké Mýto</li>
                         <li><a href="mailto:info@eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">info@eiva.cz</a></li>
                         <li><a href="https://eiva.cz" class="text-body-sm text-muted hover:text-canvas transition-colors font-body">eiva.cz</a></li>
                     </ul>
@@ -91,12 +65,8 @@
             <!-- Footer Bottom -->
             <div class="py-6 border-t border-charcoal flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <p class="text-micro text-steel font-body">
-                    &copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. Všechna práva vyhrazena.
+                    Copyright &copy; 2026 Eiva | Created By <a href="https://www.jkw-media.com" target="_blank" rel="noopener noreferrer" class="hover:text-muted transition-colors">www.jkw-media.com</a>
                 </p>
-                <div class="flex gap-6">
-                    <a href="<?php echo esc_url( home_url( '/ochrana-soukromi/' ) ); ?>" class="text-micro text-steel hover:text-muted transition-colors font-body">Ochrana soukromí</a>
-                    <a href="<?php echo esc_url( home_url( '/cookies/' ) ); ?>" class="text-micro text-steel hover:text-muted transition-colors font-body">Cookies</a>
-                </div>
             </div>
         </div>
     </footer>
@@ -156,11 +126,18 @@
             });
         }
 
-        // Category visual toggles (if present on the page)
+        // Category filter interaction with actual filtering
         const catPills = document.querySelectorAll('.cat-pill');
+        const blogCards = document.querySelectorAll('.blog-card');
+        const featuredSection = document.getElementById('featured-post');
+        const loadMoreBtn = document.getElementById('load-more-posts');
+
         if (catPills.length > 0) {
             catPills.forEach(pill => {
                 pill.addEventListener('click', () => {
+                    const selectedCat = pill.getAttribute('data-category');
+
+                    // 1. Update visual active state of buttons
                     catPills.forEach(p => {
                         p.classList.remove('bg-ink', 'text-canvas');
                         p.classList.add('border', 'border-hairline', 'text-steel', 'bg-canvas');
@@ -169,6 +146,59 @@
                     pill.classList.remove('border', 'border-hairline', 'text-steel', 'bg-canvas');
                     pill.classList.add('bg-ink', 'text-canvas');
                     pill.setAttribute('aria-selected', 'true');
+
+                    // 2. Filter grid cards with smooth transition
+                    if (blogCards.length > 0) {
+                        blogCards.forEach(card => {
+                            card.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+                            const cardCat = card.getAttribute('data-category');
+
+                            if (selectedCat === 'all' || cardCat === selectedCat) {
+                                card.style.display = 'block';
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 20);
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(12px)';
+                                setTimeout(() => {
+                                    if (card.style.opacity === '0') {
+                                        card.style.display = 'none';
+                                    }
+                                }, 250);
+                            }
+                        });
+                    }
+
+                    // 3. Filter featured post on the top (since its category is "Akce")
+                    if (featuredSection) {
+                        const featuredCat = featuredSection.getAttribute('data-category');
+                        featuredSection.style.transition = 'opacity 0.25s ease';
+                        
+                        if (selectedCat === 'all' || featuredCat === selectedCat) {
+                            featuredSection.style.display = '';
+                            setTimeout(() => {
+                                featuredSection.style.opacity = '1';
+                            }, 20);
+                        } else {
+                            featuredSection.style.opacity = '0';
+                            setTimeout(() => {
+                                if (featuredSection.style.opacity === '0') {
+                                    featuredSection.style.display = 'none';
+                                }
+                            }, 250);
+                        }
+                    }
+
+                    // 4. Hide "Load More" button when filtering
+                    if (loadMoreBtn) {
+                        if (selectedCat === 'all') {
+                            loadMoreBtn.parentElement.style.display = 'flex';
+                        } else {
+                            loadMoreBtn.parentElement.style.display = 'none';
+                        }
+                    }
                 });
             });
         }

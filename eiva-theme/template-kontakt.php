@@ -52,7 +52,7 @@ get_header();
                                 <div>
                                     <!-- Bold Physical Location -->
                                     <h2 class="text-heading-md font-bold text-ink-strong mb-8 tracking-tight">
-                                        Vysoké Mýto,<br>Česká republika
+                                        Mládežnická 380,<br>566 01 Vysoké Mýto
                                     </h2>
 
                                     <!-- General Email -->
