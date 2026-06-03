@@ -117,3 +117,132 @@ function eiva_minimax_add_menu_link_class( $atts, $item, $args ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'eiva_minimax_add_menu_link_class', 10, 3 );
+
+/**
+ * Custom styles for Contact Form 7 to match Eiva theme.
+ */
+function eiva_minimax_cf7_styles() {
+	if ( ! class_exists( 'WPCF7' ) ) {
+		return;
+	}
+
+	$css = '
+	/* CF7 Form Container */
+	.wpcf7 form {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	/* CF7 Labels */
+	.wpcf7 label {
+		display: block;
+		font-family: "DM Sans", "Inter", sans-serif;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: #8e8e93;
+		margin-bottom: 0.25rem;
+	}
+
+	/* CF7 Input Fields */
+	.wpcf7 input[type="text"],
+	.wpcf7 input[type="email"],
+	.wpcf7 input[type="tel"],
+	.wpcf7 input[type="url"],
+	.wpcf7 textarea,
+	.wpcf7 select {
+		width: 100%;
+		padding: 0.875rem 0;
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid #e5e7eb;
+		font-family: "Inter", "DM Sans", sans-serif;
+		font-size: 1rem;
+		line-height: 1.75;
+		color: #0a0a0a;
+		outline: none;
+		transition: border-color 0.2s ease;
+	}
+
+	.wpcf7 input[type="text"]:focus,
+	.wpcf7 input[type="email"]:focus,
+	.wpcf7 input[type="tel"]:focus,
+	.wpcf7 input[type="url"]:focus,
+	.wpcf7 textarea:focus,
+	.wpcf7 select:focus {
+		border-bottom-color: #0a0a0a;
+	}
+
+	.wpcf7 input::placeholder,
+	.wpcf7 textarea::placeholder {
+		color: #a8aab2;
+	}
+
+	.wpcf7 textarea {
+		resize: none;
+		min-height: 120px;
+	}
+
+	/* CF7 Submit Button */
+	.wpcf7 input[type="submit"] {
+		width: 100%;
+		padding: 1rem 2rem;
+		background-color: #0a0a0a;
+		color: #ffffff;
+		font-family: "DM Sans", "Inter", sans-serif;
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		border: none;
+		border-radius: 9999px;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+		margin-top: 1rem;
+	}
+
+	.wpcf7 input[type="submit"]:hover {
+		background-color: #222222;
+	}
+
+	/* CF7 Validation Messages */
+	.wpcf7-not-valid-tip {
+		font-family: "Inter", sans-serif;
+		font-size: 0.8125rem;
+		color: #dc2626;
+		margin-top: 0.25rem;
+	}
+
+	/* CF7 Response Output */
+	.wpcf7-response-output {
+		font-family: "Inter", sans-serif;
+		font-size: 0.875rem;
+		padding: 1rem !important;
+		border-radius: 0.75rem !important;
+		margin: 1rem 0 0 0 !important;
+	}
+
+	.wpcf7 form.sent .wpcf7-response-output {
+		border-color: #16a34a !important;
+		color: #16a34a;
+		background-color: #f0fdf4;
+	}
+
+	.wpcf7 form.failed .wpcf7-response-output,
+	.wpcf7 form.aborted .wpcf7-response-output {
+		border-color: #dc2626 !important;
+		color: #dc2626;
+		background-color: #fef2f2;
+	}
+
+	/* CF7 Spinner */
+	.wpcf7-spinner {
+		margin: 0.5rem auto 0;
+		display: block;
+	}
+	';
+
+	wp_add_inline_style( 'eiva-minimax-styles', $css );
+}
+add_action( 'wp_enqueue_scripts', 'eiva_minimax_cf7_styles' );

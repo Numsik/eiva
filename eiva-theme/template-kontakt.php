@@ -121,48 +121,23 @@ get_header();
 
                             </div>
 
-                            <!-- RIGHT COLUMN: Form or Rich Text Description -->
+                            <!-- RIGHT COLUMN: Contact Form 7 -->
                             <div class="lg:col-span-7 flex flex-col justify-start">
-                                <?php
-                                $content = get_the_content();
-                                if ( ! empty( $content ) ) {
-                                    ?>
-                                    <div class="prose-reading mb-8 bg-surface p-8 md:p-12 rounded-2xl border border-hairline/60">
-                                        <?php the_content(); ?>
-                                    </div>
+                                <div class="bg-surface p-8 md:p-12 rounded-2xl border border-hairline/60">
+                                    <h3 class="text-heading-sm font-semibold text-ink-strong mb-8">Napište nám zprávu</h3>
+                                    
                                     <?php
-                                } else {
-                                    // Default minimal beautiful form fallback if editor is empty
+                                    // Check if Contact Form 7 is active
+                                    if ( function_exists( 'wpcf7_contact_form' ) || class_exists( 'WPCF7' ) ) {
+                                        // Use the CF7 shortcode
+                                        echo do_shortcode( '[contact-form-7 id="4d30e24" title="Kontaktní formulář 1"]' );
+                                    } else {
+                                        // Fallback if CF7 is not active
+                                        echo '<p class="text-body text-steel font-body">Plugin Contact Form 7 není aktivní. Napište nám na <a href="mailto:info@eiva.cz" class="text-ink hover:underline underline-offset-4 font-medium">info@eiva.cz</a></p>';
+                                    }
                                     ?>
-                                    <div class="bg-surface p-8 md:p-12 rounded-2xl border border-hairline/60">
-                                        <h3 class="text-heading-sm font-semibold text-ink-strong mb-8">Napište nám zprávu</h3>
-                                        
-                                        <form action="#" method="POST" class="space-y-8">
-                                            <div class="relative">
-                                                <label for="name" class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-1">Jméno</label>
-                                                <input type="text" id="name" name="name" required placeholder="Vaše celé jméno" class="form-input">
-                                            </div>
+                                </div>
 
-                                            <div class="relative">
-                                                <label for="email" class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-1">E-mail</label>
-                                                <input type="email" id="email" name="email" required placeholder="vas@email.cz" class="form-input">
-                                            </div>
-
-                                            <div class="relative">
-                                                <label for="message" class="block text-micro font-semibold uppercase tracking-[0.1em] text-stone-custom mb-1">Zpráva</label>
-                                                <textarea id="message" name="message" rows="4" required placeholder="Sem napište svou zprávu..." class="form-input resize-none"></textarea>
-                                            </div>
-
-                                            <div class="pt-4">
-                                                <button type="submit" class="w-full py-4 bg-ink text-canvas font-semibold rounded-pill hover:bg-charcoal transition-colors tracking-wide text-body-sm">
-                                                    Odeslat zprávu
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <?php
-                                }
-                                ?>
                             </div>
 
                         </div>

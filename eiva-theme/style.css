@@ -256,5 +256,132 @@ html {
     transition: transform 200ms ease;
 }
 
+/* ==============================================
+   CONTACT FORM 7 — Eiva Minimax Styling
+   ============================================== */
+
+/* Form wrapper spacing */
+.wpcf7-form p {
+    margin-bottom: 1.75rem;
+}
+
+/* Labels */
+.wpcf7-form label {
+    display: block;
+    font-family: 'Inter', 'DM Sans', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8e8e93;
+    margin-bottom: 0.25rem;
+}
+
+/* All text inputs, email, tel, url, and textareas */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form input[type="url"],
+.wpcf7-form input[type="number"],
+.wpcf7-form textarea,
+.wpcf7-form select {
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    background: transparent;
+    padding: 0.75rem 0;
+    width: 100%;
+    transition: border-color 200ms ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #0a0a0a;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.wpcf7-form input[type="text"]:focus,
+.wpcf7-form input[type="email"]:focus,
+.wpcf7-form input[type="tel"]:focus,
+.wpcf7-form input[type="url"]:focus,
+.wpcf7-form input[type="number"]:focus,
+.wpcf7-form textarea:focus,
+.wpcf7-form select:focus {
+    outline: none;
+    border-color: #000000;
+    border-bottom-width: 2px;
+}
+
+/* Textarea height */
+.wpcf7-form textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+/* Submit button — full-width dark pill */
+.wpcf7-form input[type="submit"],
+.wpcf7-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 200ms ease, transform 100ms ease;
+    margin-top: 1rem;
+}
+
+.wpcf7-form input[type="submit"]:hover,
+.wpcf7-form button[type="submit"]:hover {
+    background: #222222;
+}
+
+.wpcf7-form input[type="submit"]:active,
+.wpcf7-form button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* CF7 Validation messages */
+.wpcf7-response-output {
+    border: none !important;
+    padding: 1rem 0 !important;
+    margin: 1rem 0 0 !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.wpcf7-form.sent .wpcf7-response-output {
+    color: #16a34a;
+}
+
+.wpcf7-form.invalid .wpcf7-response-output,
+.wpcf7-form.failed .wpcf7-response-output {
+    color: #dc2626;
+}
+
+/* Individual field validation */
+.wpcf7-not-valid {
+    border-color: #dc2626 !important;
+}
+
+.wpcf7-not-valid-tip {
+    font-size: 0.75rem;
+    color: #dc2626;
+    margin-top: 0.25rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Spinner — subtle loading animation */
+.wpcf7-spinner {
+    display: block;
+    margin: 0.75rem auto 0;
+}
+
 
 
