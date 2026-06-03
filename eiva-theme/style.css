@@ -75,6 +75,24 @@ html {
     background-color: rgba(10, 10, 10, 0.60);
 }
 
+/* Gear grid subtle line */
+.gear-card {
+    position: relative;
+}
+.gear-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: #e5e7eb;
+}
+.gear-card:last-child::after {
+    display: none;
+}
+
+
 /* ==============================================
    ARTICLE PROSE — the_content() formatting
    ============================================== */

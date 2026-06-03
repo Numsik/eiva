@@ -37,6 +37,7 @@
                             'menu_class'     => 'space-y-2.5',
                             'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
                             'fallback_cb'    => false,
+                            'add_a_class'    => 'text-body-sm text-muted hover:text-canvas transition-colors font-body',
                         ) );
                     } else {
                         ?>

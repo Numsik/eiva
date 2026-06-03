@@ -67,17 +67,20 @@ get_header();
         <?php
         // Fetch the absolute latest post for the Featured slot
         $featured_query = new WP_Query( array(
+            'post_type'           => 'post',
+            'post_status'         => 'publish',
             'posts_per_page'      => 1,
             'ignore_sticky_posts' => 1,
         ) );
         $featured_cat_slug = 'akce'; // default fallback
+        $featured_post_id = null;
         if ( $featured_query->have_posts() ) {
-            $featured_query->the_post();
-            $featured_categories = get_the_category();
+            $featured_post = $featured_query->posts[0];
+            $featured_post_id = $featured_post->ID;
+            $featured_categories = get_the_category( $featured_post_id );
             if ( ! empty( $featured_categories ) ) {
-                $featured_cat_slug = sanitize_title( $featured_categories[0]->name );
+                $featured_cat_slug = $featured_categories[0]->slug;
             }
-            $featured_query->rewind_posts(); // rewind so the while loop works normally
         }
         ?>
         <section id="featured-post" class="py-16 md:py-24 lg:py-32" aria-label="Hlavní článek" data-category="<?php echo esc_attr( $featured_cat_slug ); ?>">
@@ -225,11 +228,17 @@ get_header();
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-y-16" id="posts-grid">
 
                     <?php
-                    // Query remaining posts (offset by 1 to exclude featured post)
-                    $grid_query = new WP_Query( array(
-                        'posts_per_page' => 6,
-                        'offset'         => 1,
-                    ) );
+                    // Query remaining posts, excluding the featured post to avoid duplication
+                    $grid_args = array(
+                        'post_type'           => 'post',
+                        'post_status'         => 'publish',
+                        'posts_per_page'      => 6,
+                        'ignore_sticky_posts' => 1,
+                    );
+                    if ( ! empty( $featured_post_id ) ) {
+                        $grid_args['post__not_in'] = array( $featured_post_id );
+                    }
+                    $grid_query = new WP_Query( $grid_args );
 
                     if ( $grid_query->have_posts() ) :
                         $post_counter = 1;
@@ -237,7 +246,7 @@ get_header();
                             ?>
                             <?php
                             $categories = get_the_category();
-                            $cat_slug = ! empty( $categories ) ? sanitize_title( $categories[0]->name ) : 'tech';
+                            $cat_slug = ! empty( $categories ) ? $categories[0]->slug : 'tech';
                             ?>
                             <article class="blog-card group" data-category="<?php echo esc_attr( $cat_slug ); ?>">
                                 <a href="<?php the_permalink(); ?>" class="block" id="post-<?php echo esc_attr( $post_counter ); ?>">

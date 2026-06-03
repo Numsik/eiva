@@ -43,7 +43,7 @@ function eiva_minimax_enqueue_assets() {
 	// Enqueue Tailwind CDN Script
 	wp_enqueue_script( 'eiva-minimax-tailwind', 'https://cdn.tailwindcss.com', array(), null, false );
 
-	// Inject Tailwind Custom Configuration inline before head
+	// Inject Tailwind Custom Configuration inline after tailwind script loads
 	wp_add_inline_script( 'eiva-minimax-tailwind', '
 		tailwind.config = {
 			theme: {
@@ -90,7 +90,7 @@ function eiva_minimax_enqueue_assets() {
 				}
 			}
 		}
-	' );
+	', 'after' );
 }
 add_action( 'wp_enqueue_scripts', 'eiva_minimax_enqueue_assets' );
 
@@ -105,3 +105,15 @@ function eiva_minimax_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'eiva_minimax_body_classes' );
+
+/**
+ * Filter the dynamic nav menu link attributes to inject Tailwind utility classes
+ * passed via 'add_a_class' argument in wp_nav_menu.
+ */
+function eiva_minimax_add_menu_link_class( $atts, $item, $args ) {
+	if ( isset( $args->add_a_class ) ) {
+		$atts['class'] = $args->add_a_class;
+	}
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'eiva_minimax_add_menu_link_class', 10, 3 );

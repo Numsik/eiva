@@ -184,5 +184,41 @@ get_header();
 
     </main>
 
+    <!-- JavaScript: Logo staggered reveal animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            };
+
+            // Observe logo tiles for staggered reveal
+            document.querySelectorAll('.logo-tile').forEach((tile, i) => {
+                const baseOpacity = tile.style.opacity || '0.90';
+                tile.style.opacity = '0';
+                tile.style.transform = 'translateY(16px)';
+                tile.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+
+                const tileObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Animate in, then settle to the base grayscale opacity
+                            entry.target.style.opacity = baseOpacity;
+                            entry.target.style.transform = 'translateY(0)';
+                            // After the entrance animation, restore hover transitions
+                            setTimeout(() => {
+                                entry.target.style.transition = 'opacity 300ms ease, transform 200ms ease';
+                            }, 500 + i * 70);
+                            tileObserver.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                tileObserver.observe(tile);
+            });
+        });
+    </script>
+
 <?php
 get_footer();

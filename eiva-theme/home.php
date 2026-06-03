@@ -37,7 +37,7 @@ get_header();
                     <?php
                     $categories = get_categories();
                     foreach ( $categories as $category ) {
-                        $slug = sanitize_title( $category->name );
+                        $slug = $category->slug;
                         echo '<button class="cat-pill px-5 py-2 text-caption font-semibold rounded-pill border border-hairline text-steel bg-canvas" role="tab" data-category="' . esc_attr( $slug ) . '">' . esc_html( $category->name ) . '</button>';
                     }
                     if ( empty( $categories ) ) {
@@ -69,7 +69,7 @@ get_header();
                 if ( $post_index === 0 && ! is_paged() ) {
                     // FEATURED POST (Full Width, absolute latest)
                     $featured_categories = get_the_category();
-                    $featured_cat_slug = ! empty( $featured_categories ) ? sanitize_title( $featured_categories[0]->name ) : 'akce';
+                    $featured_cat_slug = ! empty( $featured_categories ) ? $featured_categories[0]->slug : 'akce';
                     ?>
                     <!-- ============================================= -->
                     <!-- 3. FEATURED POST — Spanning Full Width        -->
@@ -166,7 +166,7 @@ get_header();
                         
                         foreach ( $posts_to_show as $post ) : setup_postdata( $post );
                             $categories = get_the_category();
-                            $cat_slug = ! empty( $categories ) ? sanitize_title( $categories[0]->name ) : 'tech';
+                            $cat_slug = ! empty( $categories ) ? $categories[0]->slug : 'tech';
                             ?>
                             <article class="blog-card group" data-category="<?php echo esc_attr( $cat_slug ); ?>">
                                 <a href="<?php the_permalink(); ?>" class="block">
